@@ -1,0 +1,373 @@
+{
+  "broadcast_info": {
+    "duration_minutes": 360,
+    "total_segments": 12717,
+    "total_screenshots": 360,
+    "analysis_date": "2026-04-10",
+    "url": "https://www.youtube.com/watch?v=Vq3jz0c7oMs",
+    "campaign": "全員送料無料キャンペーン 4/10-4/16"
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "ファイテン ネックレス 2本セット",
+      "brand": "ファイテン (Phiten)",
+      "item_number": null,
+      "price": "10,980円（2本セット / 1本あたり5,490円）",
+      "retail_price": "8,580円（1本・メーカー価格）",
+      "start_time": "00:00",
+      "end_time": "19:30",
+      "duration_minutes": 19.5,
+      "category": "健康器具",
+      "phases": [
+        {"type": "cta", "start": "00:00", "end": "02:00", "note": "番組開始時点で既に販売中、クロージング段階"},
+        {"type": "social_proof", "start": "00:13", "end": "02:00", "note": "リピーターの声紹介"},
+        {"type": "demo", "start": "02:28", "end": "09:00", "note": "ブラックゴールド付け替え実演"},
+        {"type": "price_reveal", "start": "10:00", "end": "12:00", "note": "メーカー8,580円 vs 2本10,980円"},
+        {"type": "demo", "start": "12:18", "end": "18:00", "note": "磁気デモ（ホワイトボード・クリップ）"},
+        {"type": "close", "start": "19:00", "end": "19:30", "note": "クロージング"}
+      ],
+      "key_phrases": [
+        "ご用意できるタイミングって本当にありません",
+        "管理医療機器としての装着部位のこり、血行の改善",
+        "2千件を超えるご注文",
+        "1本あたり5,490円に見えない素敵なプレゼント"
+      ],
+      "techniques_summary": {
+        "scarcity": 4,
+        "social_proof": 6,
+        "anchoring": 1,
+        "comparison": 1,
+        "authority": 3,
+        "urgency": 2
+      }
+    },
+    {
+      "id": 2,
+      "name": "メルティリッチダウン フワモチケット / シキパッド（ショップスターバリュー）",
+      "brand": "モリリン",
+      "item_number": "812356（ケットシングル）/ 811364（枕カバー）",
+      "price": "6,980円（ケット）/ 5,980円（シキパッド）/ 12,960円（マッチングプライス）",
+      "retail_price": "18,400円（メーカー希望・ケット）",
+      "discount": "62%オフ（30周年特別プライス）",
+      "start_time": "20:00",
+      "end_time": "74:00",
+      "duration_minutes": 54,
+      "second_appearance_start": "240:00",
+      "second_appearance_end": "291:30",
+      "second_appearance_duration": 51.5,
+      "total_duration_minutes": 105.5,
+      "category": "寝具",
+      "phases": [
+        {"type": "intro", "start": "20:27", "end": "22:00", "note": "ゲスト杉木氏（モリリン部長）紹介"},
+        {"type": "price_reveal", "start": "21:35", "end": "22:30", "note": "62%オフ発表"},
+        {"type": "demo", "start": "29:26", "end": "36:00", "note": "ナノフィールファイバー比較デモ"},
+        {"type": "comparison", "start": "33:30", "end": "35:00", "note": "保温3.43 vs 2.61、ムレにくさ90.4% vs 79.4%、ほこり1/10"},
+        {"type": "price_reveal", "start": "36:17", "end": "37:00", "note": "18,400円→6,980円"},
+        {"type": "cta", "start": "38:00", "end": "40:00", "note": "在庫報告開始"},
+        {"type": "social_proof", "start": "41:06", "end": "43:00", "note": "口コミ4.46、2万セット近いオーダー"},
+        {"type": "close", "start": "72:33", "end": "74:00", "note": "クロージング"},
+        {"type": "intro", "start": "240:00", "end": "242:00", "note": "2回目登場、15,000件超報告"},
+        {"type": "demo", "start": "247:40", "end": "254:00", "note": "ナノフィールファイバーデモ2回目"},
+        {"type": "close", "start": "286:54", "end": "291:30", "note": "最終クロージング、在庫2割台"}
+      ],
+      "key_phrases": [
+        "高級ダウンケット上回る保温・ムレにくさ、ほこり量は約十分の一",
+        "1日20枚しか作れない",
+        "2026年度の追加生産の予定はありません",
+        "30周年だからこそやったことないことをやりましょう",
+        "口コミ平均4.46",
+        "メルティリッチのショップスターバリューが送料無料になったことは、はじめて",
+        "シングルサイズだけでも16000件"
+      ],
+      "techniques_summary": {
+        "scarcity": 25,
+        "social_proof": 15,
+        "anchoring": 10,
+        "comparison": 10,
+        "authority": 5,
+        "urgency": 8
+      }
+    },
+    {
+      "id": 3,
+      "name": "パルスイクロス 6枚セット",
+      "brand": "コパ・コーポレーション",
+      "item_number": "819835",
+      "price": "3,980円（6枚セット / 1枚あたり664円）",
+      "retail_price": "990円/枚（メーカー店頭価格）",
+      "start_time": "75:00",
+      "end_time": "127:47",
+      "duration_minutes": 52.8,
+      "category": "掃除用品",
+      "phases": [
+        {"type": "intro", "start": "75:10", "end": "78:00", "note": "VTR・ナレーション、累計1,588万枚"},
+        {"type": "demo", "start": "80:00", "end": "97:00", "note": "油汚れ・油性ペン・ケチャップ等の実演"},
+        {"type": "price_reveal", "start": "98:30", "end": "99:00", "note": "1枚664円"},
+        {"type": "demo", "start": "100:22", "end": "118:00", "note": "第2・第3ラウンドのデモ"},
+        {"type": "cta", "start": "120:00", "end": "126:33", "note": "3,300件超、最終CTA"},
+        {"type": "close", "start": "126:49", "end": "127:47", "note": "クロージング"}
+      ],
+      "key_phrases": [
+        "累計販売数1,588万枚を突破",
+        "口コミ評価4.2以上、4.5が80%以上",
+        "1枚あたり664円",
+        "千葉で手作り、数量ができない",
+        "プロ仕様：焼肉店、介護施設、病院が使ってる",
+        "5年10年使える",
+        "社員が買うよりも安い"
+      ],
+      "techniques_summary": {
+        "scarcity": 12,
+        "social_proof": 12,
+        "anchoring": 6,
+        "comparison": 5,
+        "authority": 4,
+        "urgency": 6
+      }
+    },
+    {
+      "id": 4,
+      "name": "シルバーミーとし レースベスト＆プルオーバー アンサンブルセット",
+      "brand": "シルバーミーとし（サイトー両子デザイン）",
+      "item_number": null,
+      "price": "5,990円（2点セット）",
+      "separate_item": "ツータックパンツ 4,990円",
+      "start_time": "129:55",
+      "end_time": "182:43",
+      "duration_minutes": 52.8,
+      "category": "ファッション",
+      "phases": [
+        {"type": "intro", "start": "129:55", "end": "131:00", "note": "ゴゴバリュー紹介開始"},
+        {"type": "price_reveal", "start": "130:59", "end": "131:30", "note": "2点セット5,990円"},
+        {"type": "demo", "start": "133:27", "end": "150:00", "note": "デザイナー登場、素材・カーブライン解説"},
+        {"type": "cta", "start": "150:43", "end": "155:00", "note": "在庫急減、7,000件→1万件"},
+        {"type": "demo", "start": "155:06", "end": "178:00", "note": "パンツ紹介、コーデ提案"},
+        {"type": "close", "start": "180:00", "end": "182:43", "note": "最終クロージング"}
+      ],
+      "key_phrases": [
+        "なんと2点で5,990円",
+        "5,000〜9,000円してもおかしくない",
+        "注文数が1万件を突破",
+        "1年前から企画",
+        "工場さんが全部ハサミを持って手で切ってる",
+        "あるときがもうチャンスです"
+      ],
+      "techniques_summary": {
+        "scarcity": 20,
+        "social_proof": 14,
+        "anchoring": 8,
+        "comparison": 4,
+        "authority": 5,
+        "urgency": 6
+      }
+    },
+    {
+      "id": 5,
+      "name": "あゆみ ルームシューズ かかとスポット / のびのびソックス",
+      "brand": "あゆみ（アイウム/AYUMI）/ 株式会社徳武産業",
+      "item_number": "799758（ルームシューズ）/ 799754（ソックス）/ 809937（大きめ）",
+      "price": "3,990円（ルームシューズ、定価4,400円）/ 5,300円（ソックス4足組、定価6,160円）",
+      "start_time": "184:08",
+      "end_time": "237:21",
+      "duration_minutes": 53.2,
+      "category": "靴・靴下",
+      "phases": [
+        {"type": "intro", "start": "184:08", "end": "186:00", "note": "ラインナップ紹介、ゲスト徳武聖古CEO"},
+        {"type": "demo", "start": "186:42", "end": "190:00", "note": "ソックス開発背景、伸縮実演"},
+        {"type": "price_reveal", "start": "189:31", "end": "190:00", "note": "ソックス6,160円→5,300円"},
+        {"type": "demo", "start": "190:16", "end": "219:46", "note": "ルームシューズ転倒対策デモ（階段・段差・パタパタ音）"},
+        {"type": "demo", "start": "219:46", "end": "237:00", "note": "ソックス詳細（風船デモ、ゴム分散、装具対応）"},
+        {"type": "close", "start": "237:14", "end": "237:21", "note": "母の日プレゼント訴求でクロージング"}
+      ],
+      "key_phrases": [
+        "高齢者向けシューズ国内トップシェア",
+        "販売累計2500万足、来年で70年",
+        "転倒は室内が大陰、6割以上（東京消防庁データ）",
+        "スリッパは抜けやすく転倒の原因",
+        "パタパタ音がしない",
+        "逆発想：一点じゃなくて全体にゴムを散らす",
+        "日本サービス大賞 経済産業大臣賞"
+      ],
+      "techniques_summary": {
+        "scarcity": 11,
+        "social_proof": 19,
+        "anchoring": 8,
+        "comparison": 9,
+        "authority": 12,
+        "urgency": 5
+      }
+    },
+    {
+      "id": 6,
+      "name": "オロリナ 純金・18金ジュエリーコレクション",
+      "brand": "オロリナ（株式会社オーロラ）",
+      "item_number": "818207(チェーン)/818204(1/4oz)/818205(1/10oz)/818206(トインクル)/818208(ブレス)",
+      "price": "49,900円〜899,000円",
+      "start_time": "303:02",
+      "end_time": "348:00",
+      "duration_minutes": 45,
+      "category": "ジュエリー",
+      "phases": [
+        {"type": "intro", "start": "303:02", "end": "305:00", "note": "ラインナップ紹介、社長いわした氏"},
+        {"type": "authority", "start": "305:41", "end": "307:00", "note": "金相場・資産価値解説"},
+        {"type": "price_reveal", "start": "307:00", "end": "308:00", "note": "37万→23万9900円"},
+        {"type": "demo", "start": "310:00", "end": "320:00", "note": "装着デモ、造幣局マーク"},
+        {"type": "intro", "start": "320:00", "end": "340:00", "note": "メイプルリーフコイン"},
+        {"type": "intro", "start": "340:32", "end": "347:00", "note": "トインクルネックレス、ブレスレット"},
+        {"type": "close", "start": "347:20", "end": "348:00", "note": "振り返り"}
+      ],
+      "key_phrases": [
+        "金は今世界から注目されている金属、有事の金",
+        "中間マージンゼロのダイレクトプライス",
+        "造幣局の検定マーク付き",
+        "ワクを作る会社は日本に一社しかない",
+        "おねびき47万6千円",
+        "年末には金はさらに上がるとの専門家見解"
+      ],
+      "techniques_summary": {
+        "scarcity": 10,
+        "social_proof": 5,
+        "anchoring": 10,
+        "comparison": 3,
+        "authority": 10,
+        "urgency": 5
+      }
+    },
+    {
+      "id": 7,
+      "name": "センターンビオセーム ファンデーション 4ヶ月セット",
+      "brand": "センターンビオセーム / ハピエンス",
+      "item_number": "796930",
+      "price": "5,990円（4ヶ月分、52%OFF）",
+      "start_time": "350:00",
+      "end_time": "359:58",
+      "duration_minutes": 10,
+      "category": "コスメ",
+      "phases": [
+        {"type": "intro", "start": "350:00", "end": "352:00", "note": "4ヶ月分セット紹介"},
+        {"type": "price_reveal", "start": "350:17", "end": "351:00", "note": "5,990円、1ヶ月1,498円"},
+        {"type": "demo", "start": "354:23", "end": "357:00", "note": "油+水の肌に塗る実演"},
+        {"type": "cta", "start": "356:28", "end": "359:58", "note": "300件超、レフィル30点のみ"}
+      ],
+      "key_phrases": [
+        "7つやはだ",
+        "SPF50+ PA++++、国内基準最高",
+        "色選び不要",
+        "52%オフ、1ヶ月498円",
+        "10秒は任せください"
+      ],
+      "techniques_summary": {
+        "scarcity": 2,
+        "social_proof": 2,
+        "anchoring": 3,
+        "comparison": 1,
+        "authority": 2,
+        "urgency": 2
+      }
+    }
+  ],
+  "non_product_segments": [
+    {"type": "cm_transition", "start": "19:30", "end": "20:27", "description": "ファイテン関連商品+CM"},
+    {"type": "cm_transition", "start": "74:00", "end": "75:00", "description": "送料無料CM+ファッションウィーク告知"},
+    {"type": "cm_transition", "start": "127:47", "end": "129:55", "description": "番組告知CM群"},
+    {"type": "cm_transition", "start": "182:43", "end": "184:08", "description": "送料無料CM"},
+    {"type": "cm_transition", "start": "237:21", "end": "239:41", "description": "予告CM群"},
+    {"type": "cm_transition", "start": "291:30", "end": "293:38", "description": "CM+お茶行動時間開始"},
+    {"type": "viewer_segment", "start": "293:38", "end": "303:02", "description": "お茶行動時間（視聴者メッセージ、桜写真）"},
+    {"type": "cm_transition", "start": "347:40", "end": "350:00", "description": "ジュエリー振り返り+CM"}
+  ],
+  "pattern_analysis": {
+    "common_structure": "導入(商品名・ゲスト紹介) → 実演デモ(複数ラウンド) → 価格発表(アンカリング) → 社会的証明(口コミ・注文数) → 在庫カウントダウン(希少性エスカレーション) → 最終CTA → クロージング。1商品あたり約45-55分のサイクル。",
+    "top_phrases": [
+      {"phrase": "送料無料キャンペーン", "count": 30, "context": "全セグメントで繰り返し"},
+      {"phrase": "お電話○○件/○○名", "count": 25, "context": "リアルタイム注文数報告"},
+      {"phrase": "ラストチャンス", "count": 15, "context": "在庫僅少時の緊急性"},
+      {"phrase": "○○点を切りました/切ります", "count": 40, "context": "在庫カウントダウン"},
+      {"phrase": "いつ登場するか/次はいつか分からない", "count": 8, "context": "再入荷未定の希少性"},
+      {"phrase": "受付終了", "count": 10, "context": "特定カラー/サイズの完売"},
+      {"phrase": "ウェイトリスト", "count": 8, "context": "完売後の待機リスト"},
+      {"phrase": "手作り/手作業/職人", "count": 12, "context": "生産限界の正当化"},
+      {"phrase": "メーカー希望○○円のところ", "count": 15, "context": "アンカリングの定型句"},
+      {"phrase": "日本製", "count": 5, "context": "品質の権威付け"}
+    ],
+    "technique_distribution": {
+      "scarcity": 84,
+      "social_proof": 73,
+      "anchoring": 46,
+      "comparison": 33,
+      "authority": 41,
+      "urgency": 34
+    },
+    "avg_phase_duration_pct": {
+      "intro": 8,
+      "demo": 45,
+      "price_reveal": 5,
+      "social_proof": 10,
+      "cta_scarcity": 25,
+      "close": 7
+    }
+  },
+  "visual_analysis_targets": [
+    {"timestamp_sec": 0, "reason": "product_start", "description": "ファイテンネックレス販売中画面"},
+    {"timestamp_sec": 600, "reason": "price_display", "description": "メーカー8,580円 vs 2本10,980円テロップ"},
+    {"timestamp_sec": 738, "reason": "demo", "description": "磁気デモ（ホワイトボード）"},
+    {"timestamp_sec": 1228, "reason": "product_transition", "description": "ショップスターバリュー開始テロップ"},
+    {"timestamp_sec": 1298, "reason": "price_display", "description": "62%オフ・30周年特別プライス"},
+    {"timestamp_sec": 2010, "reason": "comparison_data", "description": "保温性2.61 vs 3.43テロップ"},
+    {"timestamp_sec": 2063, "reason": "comparison_data", "description": "ムレにくさ79.4% vs 90.4%テロップ"},
+    {"timestamp_sec": 2177, "reason": "price_display", "description": "18,400円→6,980円テロップ"},
+    {"timestamp_sec": 2468, "reason": "review_score", "description": "口コミ4.46テロップ"},
+    {"timestamp_sec": 2700, "reason": "demo", "description": "ダニ試験結果テロップ（3万匹→0匹）"},
+    {"timestamp_sec": 3190, "reason": "matching_price", "description": "マッチングプライス12,960円テロップ"},
+    {"timestamp_sec": 4440, "reason": "product_transition", "description": "送料無料CM"},
+    {"timestamp_sec": 4510, "reason": "product_start", "description": "パルスイクロスVTR開始"},
+    {"timestamp_sec": 4625, "reason": "price_display", "description": "1枚664円テロップ"},
+    {"timestamp_sec": 4800, "reason": "demo", "description": "油汚れ拭き取りデモ"},
+    {"timestamp_sec": 4871, "reason": "demo", "description": "油性ペン比較デモ（パルスイクロス vs 綿）"},
+    {"timestamp_sec": 5520, "reason": "demo", "description": "フライパン熱デモ"},
+    {"timestamp_sec": 5718, "reason": "demo", "description": "お掃除ワイパー装着→網戸掃除"},
+    {"timestamp_sec": 7560, "reason": "price_display", "description": "パルスイクロス品番819-835テロップ"},
+    {"timestamp_sec": 7795, "reason": "product_start", "description": "ゴゴバリュー 5,990円テロップ"},
+    {"timestamp_sec": 7859, "reason": "price_display", "description": "2点セット5,990円テロップ"},
+    {"timestamp_sec": 8400, "reason": "stock_alert", "description": "各サイズ在庫テロップ"},
+    {"timestamp_sec": 9375, "reason": "order_count", "description": "7,600件注文テロップ"},
+    {"timestamp_sec": 9720, "reason": "demo", "description": "素材アップ（不織布、コードレース）"},
+    {"timestamp_sec": 10321, "reason": "order_count", "description": "1万件突破テロップ"},
+    {"timestamp_sec": 10800, "reason": "quality_demo", "description": "ベスト裏側品質アップ"},
+    {"timestamp_sec": 10963, "reason": "product_transition", "description": "アンサンブル終了→CM"},
+    {"timestamp_sec": 11048, "reason": "product_start", "description": "あゆみシリーズ ラインナップテロップ"},
+    {"timestamp_sec": 11274, "reason": "price_display", "description": "品番799758/799754 価格テロップ"},
+    {"timestamp_sec": 11509, "reason": "authority_data", "description": "室内転倒統計データ（6割以上）テロップ"},
+    {"timestamp_sec": 11730, "reason": "demo", "description": "スリッパ階段上り実演（危険性）"},
+    {"timestamp_sec": 12150, "reason": "demo", "description": "パタパタ音比較実演"},
+    {"timestamp_sec": 12348, "reason": "stock_alert", "description": "ルームシューズ各サイズ残数テロップ"},
+    {"timestamp_sec": 13360, "reason": "demo", "description": "風船デモ（ソックス伸縮性）"},
+    {"timestamp_sec": 13440, "reason": "comparison", "description": "従来靴下 vs 伸び伸び靴下構造比較"},
+    {"timestamp_sec": 13800, "reason": "authority", "description": "受賞歴テロップ（各種表彰）"},
+    {"timestamp_sec": 14237, "reason": "summary", "description": "全商品振り返りテロップ"},
+    {"timestamp_sec": 14400, "reason": "product_start", "description": "メルティリッチダウン2回目、15,000件超"},
+    {"timestamp_sec": 14860, "reason": "demo", "description": "ナノフィールファイバー比較実演2回目"},
+    {"timestamp_sec": 15104, "reason": "comparison_data", "description": "湿度比較試験結果フリップ"},
+    {"timestamp_sec": 15363, "reason": "stock_alert", "description": "在庫3割→2割テロップ"},
+    {"timestamp_sec": 16260, "reason": "chime", "description": "チャイム音+残りわずかテロップ"},
+    {"timestamp_sec": 17100, "reason": "demo", "description": "横になって使用感デモ"},
+    {"timestamp_sec": 17490, "reason": "product_transition", "description": "メルティリッチ終了→CM"},
+    {"timestamp_sec": 17618, "reason": "viewer_segment", "description": "お茶行動時間（桜写真）"},
+    {"timestamp_sec": 18182, "reason": "product_start", "description": "ジュエリーラインナップ一覧"},
+    {"timestamp_sec": 18363, "reason": "authority_data", "description": "金の国内年別価格推移グラフ"},
+    {"timestamp_sec": 18600, "reason": "demo", "description": "照明落とした輝きデモ"},
+    {"timestamp_sec": 18737, "reason": "authority", "description": "造幣局検定マークアップ"},
+    {"timestamp_sec": 19228, "reason": "comparison_data", "description": "金の年別時価平均グラフ"},
+    {"timestamp_sec": 19200, "reason": "product_switch", "description": "メイプルリーフコイン紹介"},
+    {"timestamp_sec": 19320, "reason": "demo", "description": "18金板状ワクの細工アップ"},
+    {"timestamp_sec": 19997, "reason": "comparison", "description": "1/10と1/4オンスサイズ比較"},
+    {"timestamp_sec": 20432, "reason": "price_display", "description": "トインクルネックレス49,900円テロップ"},
+    {"timestamp_sec": 20710, "reason": "demo", "description": "4面カット光の反射デモ"},
+    {"timestamp_sec": 20900, "reason": "summary", "description": "全ジュエリー振り返り画面"},
+    {"timestamp_sec": 21000, "reason": "product_start", "description": "ファンデーション4ヶ月セット"},
+    {"timestamp_sec": 21017, "reason": "price_display", "description": "5,990円テロップ"},
+    {"timestamp_sec": 21263, "reason": "demo", "description": "油+水の肌にファンデーション塗布デモ"},
+    {"timestamp_sec": 21347, "reason": "price_display", "description": "52%OFFテロップ"}
+  ]
+}

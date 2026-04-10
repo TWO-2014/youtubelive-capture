@@ -1,0 +1,10 @@
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+output/**/*.wav
+output/**/*.mp4
+output/**/*.mp4.part
+output/**/tmp/
+output/**/segments/

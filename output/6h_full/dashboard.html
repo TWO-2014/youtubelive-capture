@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ショップチャンネル 6時間放送 分析ダッシュボード</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'Hiragino Sans', sans-serif; background: #f5f5f5; color: #333; }
+.header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: white; padding: 2rem; }
+.header h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.header p { opacity: 0.8; font-size: 0.9rem; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; padding: 1.5rem; }
+.stat { background: white; border-radius: 8px; padding: 1rem; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.stat .num { font-size: 1.8rem; font-weight: 700; color: #1a1a2e; }
+.stat .label { font-size: 0.8rem; color: #666; }
+.section { background: white; margin: 1rem; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.section h2 { font-size: 1.2rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 2px solid #eee; }
+.chart-container { position: relative; height: 400px; }
+.chart-container-wide { position: relative; height: 200px; }
+table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+th, td { padding: 0.5rem; text-align: left; border-bottom: 1px solid #eee; }
+th { background: #f8f8f8; font-weight: 600; }
+.card { background: #fafafa; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+.card h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+.card-meta { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: #666; margin-bottom: 0.5rem; }
+.card-detail { font-size: 0.85rem; margin-bottom: 0.5rem; }
+.badge { background: #e8e8e8; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; }
+.price { color: #e15759; font-weight: 700; }
+ul { padding-left: 1.2rem; font-size: 0.85rem; }
+li { margin-bottom: 0.2rem; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>ショップチャンネル 6時間放送 分析ダッシュボード</h1>
+    <p>URL: https://www.youtube.com/watch?v=Vq3jz0c7oMs | 分析日: 2026-04-10 | キャンペーン: 全員送料無料キャンペーン 4/10-4/16</p>
+</div>
+
+<div class="stats">
+    <div class="stat"><div class="num">7</div><div class="label">商品数</div></div>
+    <div class="stat"><div class="num">360</div><div class="label">放送時間(分)</div></div>
+    <div class="stat"><div class="num">311</div><div class="label">説得テクニック検出数</div></div>
+    <div class="stat"><div class="num">12,717</div><div class="label">文字起こしセグメント</div></div>
+    <div class="stat"><div class="num">360</div><div class="label">スクリーンショット</div></div>
+    <div class="stat"><div class="num">60</div><div class="label">視覚分析ポイント</div></div>
+</div>
+
+<div class="section">
+    <h2>商品タイムライン（6時間）</h2>
+    <div class="chart-container-wide">
+        <canvas id="timelineChart"></canvas>
+    </div>
+</div>
+
+<div class="grid-2">
+    <div class="section">
+        <h2>説得テクニック分布</h2>
+        <div class="chart-container">
+            <canvas id="techChart"></canvas>
+        </div>
+    </div>
+    <div class="section">
+        <h2>商品別テクニック使用数</h2>
+        <div class="chart-container">
+            <canvas id="productTechChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>フェーズ別時間配分（平均）</h2>
+    <div class="chart-container" style="height:250px">
+        <canvas id="phaseChart"></canvas>
+    </div>
+</div>
+
+<div class="section">
+    <h2>頻出フレーズ TOP 10</h2>
+    <table>
+        <thead><tr><th>フレーズ</th><th>出現回数</th><th>文脈</th></tr></thead>
+        <tbody><tr><td>送料無料キャンペーン</td><td>30</td><td>全セグメントで繰り返し</td></tr>
+<tr><td>お電話○○件/○○名</td><td>25</td><td>リアルタイム注文数報告</td></tr>
+<tr><td>ラストチャンス</td><td>15</td><td>在庫僅少時の緊急性</td></tr>
+<tr><td>○○点を切りました/切ります</td><td>40</td><td>在庫カウントダウン</td></tr>
+<tr><td>いつ登場するか/次はいつか分からない</td><td>8</td><td>再入荷未定の希少性</td></tr>
+<tr><td>受付終了</td><td>10</td><td>特定カラー/サイズの完売</td></tr>
+<tr><td>ウェイトリスト</td><td>8</td><td>完売後の待機リスト</td></tr>
+<tr><td>手作り/手作業/職人</td><td>12</td><td>生産限界の正当化</td></tr>
+<tr><td>メーカー希望○○円のところ</td><td>15</td><td>アンカリングの定型句</td></tr>
+<tr><td>日本製</td><td>5</td><td>品質の権威付け</td></tr>
+</tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>商品カード</h2>
+    
+        <div class="card" style="border-left: 4px solid #4e79a7">
+            <h3>ファイテン ネックレス 2本セット</h3>
+            <div class="card-meta">
+                <span class="badge">健康器具</span>
+                <span>00:00〜19:30 (19.5分)</span>
+                <span class="price">10,980円（2本セット / 1本あたり5,490円）</span>
+            </div>
+            <div class="card-detail">
+                <div><strong>ブランド:</strong> ファイテン (Phiten)</div>
+                <div><strong>品番:</strong> None</div>
+                <div><strong>主要テクニック:</strong> 社会的証明(6), 希少性(4), 権威(3)</div>
+            </div>
+            <div><strong>キーフレーズ:</strong><ul><li>ご用意できるタイミングって本当にありません</li><li>管理医療機器としての装着部位のこり、血行の改善</li><li>2千件を超えるご注文</li><li>1本あたり5,490円に見えない素敵なプレゼント</li></ul></div>
+        </div>
+        
+        <div class="card" style="border-left: 4px solid #f28e2b">
+            <h3>メルティリッチダウン フワモチケット / シキパッド（ショップスターバリュー）</h3>
+            <div class="card-meta">
+                <span class="badge">寝具</span>
+                <span>20:00〜74:00 (105.5分)</span>
+                <span class="price">6,980円（ケット）/ 5,980円（シキパッド）/ 12,960円（マッチングプライス）</span>
+            </div>
+            <div class="card-detail">
+                <div><strong>ブランド:</strong> モリリン</div>
+                <div><strong>品番:</strong> 812356（ケットシングル）/ 811364（枕カバー）</div>
+                <div><strong>主要テクニック:</strong> 希少性(25), 社会的証明(15), アンカリング(10)</div>
+            </div>
+            <div><strong>キーフレーズ:</strong><ul><li>高級ダウンケット上回る保温・ムレにくさ、ほこり量は約十分の一</li><li>1日20枚しか作れない</li><li>2026年度の追加生産の予定はありません</li><li>30周年だからこそやったことないことをやりましょう</li><li>口コミ平均4.46</li></ul></div>
+        </div>
+        
+        <div class="card" style="border-left: 4px solid #e15759">
+            <h3>パルスイクロス 6枚セット</h3>
+            <div class="card-meta">
+                <span class="badge">掃除用品</span>
+                <span>75:00〜127:47 (52.8分)</span>
+                <span class="price">3,980円（6枚セット / 1枚あたり664円）</span>
+            </div>
+            <div class="card-detail">
+                <div><strong>ブランド:</strong> コパ・コーポレーション</div>
+                <div><strong>品番:</strong> 819835</div>
+                <div><strong>主要テクニック:</strong> 希少性(12), 社会的証明(12), アンカリング(6)</div>
+            </div>
+            <div><strong>キーフレーズ:</strong><ul><li>累計販売数1,588万枚を突破</li><li>口コミ評価4.2以上、4.5が80%以上</li><li>1枚あたり664円</li><li>千葉で手作り、数量ができない</li><li>プロ仕様：焼肉店、介護施設、病院が使ってる</li></ul></div>
+        </div>
+        
+        <div class="card" style="border-left: 4px solid #76b7b2">
+            <h3>シルバーミーとし レースベスト＆プルオーバー アンサンブルセット</h3>
+            <div class="card-meta">
+                <span class="badge">ファッション</span>
+                <span>129:55〜182:43 (52.8分)</span>
+                <span class="price">5,990円（2点セット）</span>
+            </div>
+            <div class="card-detail">
+                <div><strong>ブランド:</strong> シルバーミーとし（サイトー両子デザイン）</div>
+                <div><strong>品番:</strong> None</div>
+                <div><strong>主要テクニック:</strong> 希少性(20), 社会的証明(14), アンカリング(8)</div>
+            </div>
+            <div><strong>キーフレーズ:</strong><ul><li>なんと2点で5,990円</li><li>5,000〜9,000円してもおかしくない</li><li>注文数が1万件を突破</li><li>1年前から企画</li><li>工場さんが全部ハサミを持って手で切ってる</li></ul></div>
+        </div>
+        
+        <div class="card" style="border-left: 4px solid #59a14f">
+            <h3>あゆみ ルームシューズ かかとスポット / のびのびソックス</h3>
+            <div class="card-meta">
+                <span class="badge">靴・靴下</span>
+                <span>184:08〜237:21 (53.2分)</span>
+                <span class="price">3,990円（ルームシューズ、定価4,400円）/ 5,300円（ソックス4足組、定価6,160円）</span>
+            </div>
+            <div class="card-detail">
+                <div><strong>ブランド:</strong> あゆみ（アイウム/AYUMI）/ 株式会社徳武産業</div>
+                <div><strong>品番:</strong> 799758（ルームシューズ）/ 799754（ソックス）/ 809937（大きめ）</div>
+                <div><strong>主要テクニック:</strong> 社会的証明(19), 権威(12), 希少性(11)</div>
+            </div>
+            <div><strong>キーフレーズ:</strong><ul><li>高齢者向けシューズ国内トップシェア</li><li>販売累計2500万足、来年で70年</li><li>転倒は室内が大陰、6割以上（東京消防庁データ）</li><li>スリッパは抜けやすく転倒の原因</li><li>パタパタ音がしない</li></ul></div>
+        </div>
+        
+        <div class="card" style="border-left: 4px solid #edc948">
+            <h3>オロリナ 純金・18金ジュエリーコレクション</h3>
+            <div class="card-meta">
+                <span class="badge">ジュエリー</span>
+                <span>303:02〜348:00 (45分)</span>
+                <span class="price">49,900円〜899,000円</span>
+            </div>
+            <div class="card-detail">
+                <div><strong>ブランド:</strong> オロリナ（株式会社オーロラ）</div>
+                <div><strong>品番:</strong> 818207(チェーン)/818204(1/4oz)/818205(1/10oz)/818206(トインクル)/818208(ブレス)</div>
+                <div><strong>主要テクニック:</strong> 希少性(10), アンカリング(10), 権威(10)</div>
+            </div>
+            <div><strong>キーフレーズ:</strong><ul><li>金は今世界から注目されている金属、有事の金</li><li>中間マージンゼロのダイレクトプライス</li><li>造幣局の検定マーク付き</li><li>ワクを作る会社は日本に一社しかない</li><li>おねびき47万6千円</li></ul></div>
+        </div>
+        
+        <div class="card" style="border-left: 4px solid #b07aa1">
+            <h3>センターンビオセーム ファンデーション 4ヶ月セット</h3>
+            <div class="card-meta">
+                <span class="badge">コスメ</span>
+                <span>350:00〜359:58 (10分)</span>
+                <span class="price">5,990円（4ヶ月分、52%OFF）</span>
+            </div>
+            <div class="card-detail">
+                <div><strong>ブランド:</strong> センターンビオセーム / ハピエンス</div>
+                <div><strong>品番:</strong> 796930</div>
+                <div><strong>主要テクニック:</strong> アンカリング(3), 希少性(2), 社会的証明(2)</div>
+            </div>
+            <div><strong>キーフレーズ:</strong><ul><li>7つやはだ</li><li>SPF50+ PA++++、国内基準最高</li><li>色選び不要</li><li>52%オフ、1ヶ月498円</li><li>10秒は任せください</li></ul></div>
+        </div>
+        
+</div>
+
+<script>
+// Timeline
+const timelineData = [{"label": "ファイテン ネックレス 2本セット", "start": 0.0, "end": 19.5, "color": "#4e79a7", "price": "10,980円（2本セット / 1本あたり5,490円）", "duration": 19.5}, {"label": "メルティリッチダウン フワモチケット / シキパッ", "start": 20.0, "end": 74.0, "color": "#f28e2b", "price": "6,980円（ケット）/ 5,980円（シキパッド）/ 12,960円（マッチングプライス）", "duration": 54}, {"label": "メルティリッチダウン フワモチケット / シキパッ (2回目)", "start": 240.0, "end": 291.5, "color": "#f28e2b", "price": "", "duration": 51.5}, {"label": "パルスイクロス 6枚セット", "start": 75.0, "end": 127.78333333333333, "color": "#e15759", "price": "3,980円（6枚セット / 1枚あたり664円）", "duration": 52.8}, {"label": "シルバーミーとし レースベスト＆プルオーバー アン", "start": 129.91666666666666, "end": 182.71666666666667, "color": "#76b7b2", "price": "5,990円（2点セット）", "duration": 52.8}, {"label": "あゆみ ルームシューズ かかとスポット / のびの", "start": 184.13333333333333, "end": 237.35, "color": "#59a14f", "price": "3,990円（ルームシューズ、定価4,400円）/ 5,300円（ソックス4足組、定価6,160円）", "duration": 53.2}, {"label": "オロリナ 純金・18金ジュエリーコレクション", "start": 303.03333333333336, "end": 348.0, "color": "#edc948", "price": "49,900円〜899,000円", "duration": 45}, {"label": "センターンビオセーム ファンデーション 4ヶ月セッ", "start": 350.0, "end": 359.96666666666664, "color": "#b07aa1", "price": "5,990円（4ヶ月分、52%OFF）", "duration": 10}];
+new Chart(document.getElementById('timelineChart'), {
+    type: 'bar',
+    data: {
+        labels: timelineData.map(d => d.label),
+        datasets: [{
+            label: '放送時間帯',
+            data: timelineData.map(d => [d.start, d.end]),
+            backgroundColor: timelineData.map(d => d.color + '99'),
+            borderColor: timelineData.map(d => d.color),
+            borderWidth: 1,
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: { min: 0, max: 360, title: { display: true, text: '時間（分）' },
+                ticks: { callback: v => Math.floor(v/60)+'h'+String(v%60).padStart(2,'0')+'m' } }
+        },
+        plugins: { legend: { display: false } }
+    }
+});
+
+// Technique distribution
+const techLabels = ["希少性", "社会的証明", "アンカリング", "比較", "権威", "緊急性"];
+const techValues = [84, 73, 46, 33, 41, 34];
+new Chart(document.getElementById('techChart'), {
+    type: 'doughnut',
+    data: {
+        labels: techLabels,
+        datasets: [{ data: techValues, backgroundColor: ['#e15759','#4e79a7','#f28e2b','#76b7b2','#59a14f','#edc948'] }]
+    },
+    options: { responsive: true, maintainAspectRatio: false }
+});
+
+// Product technique stacked bar
+const ptData = [{"name": "ファイテン ネックレス 2本セット", "scarcity": 4, "social_proof": 6, "anchoring": 1, "comparison": 1, "authority": 3, "urgency": 2}, {"name": "メルティリッチダウン フワモチケット /", "scarcity": 25, "social_proof": 15, "anchoring": 10, "comparison": 10, "authority": 5, "urgency": 8}, {"name": "パルスイクロス 6枚セット", "scarcity": 12, "social_proof": 12, "anchoring": 6, "comparison": 5, "authority": 4, "urgency": 6}, {"name": "シルバーミーとし レースベスト＆プルオー", "scarcity": 20, "social_proof": 14, "anchoring": 8, "comparison": 4, "authority": 5, "urgency": 6}, {"name": "あゆみ ルームシューズ かかとスポット ", "scarcity": 11, "social_proof": 19, "anchoring": 8, "comparison": 9, "authority": 12, "urgency": 5}, {"name": "オロリナ 純金・18金ジュエリーコレクシ", "scarcity": 10, "social_proof": 5, "anchoring": 10, "comparison": 3, "authority": 10, "urgency": 5}, {"name": "センターンビオセーム ファンデーション ", "scarcity": 2, "social_proof": 2, "anchoring": 3, "comparison": 1, "authority": 2, "urgency": 2}];
+const techKeys = ['scarcity','social_proof','anchoring','comparison','authority','urgency'];
+const techColors = ['#e15759','#4e79a7','#f28e2b','#76b7b2','#59a14f','#edc948'];
+const techNamesJP = {"scarcity": "希少性", "social_proof": "社会的証明", "anchoring": "アンカリング", "comparison": "比較", "authority": "権威", "urgency": "緊急性"};
+new Chart(document.getElementById('productTechChart'), {
+    type: 'bar',
+    data: {
+        labels: ptData.map(d => d.name),
+        datasets: techKeys.map((k, i) => ({
+            label: techNamesJP[k],
+            data: ptData.map(d => d[k]),
+            backgroundColor: techColors[i],
+        }))
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: { x: { stacked: true }, y: { stacked: true } },
+    }
+});
+
+// Phase duration
+const phaseData = {"intro": 8, "demo": 45, "price_reveal": 5, "social_proof": 10, "cta_scarcity": 25, "close": 7};
+new Chart(document.getElementById('phaseChart'), {
+    type: 'bar',
+    data: {
+        labels: Object.keys(phaseData).map(k => ({
+            intro:'導入',demo:'実演デモ',price_reveal:'価格発表',
+            social_proof:'社会的証明',cta_scarcity:'CTA・在庫訴求',close:'クロージング'
+        })[k] || k),
+        datasets: [{ data: Object.values(phaseData), backgroundColor: '#4e79a7' }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { title: { display: true, text: '平均時間配分 (%)' } } }
+    }
+});
+</script>
+</body>
+</html>

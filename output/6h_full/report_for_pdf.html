@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<style>
+@page { size: A4 landscape; margin: 12mm; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif; color: #333; font-size: 10px; line-height: 1.5; }
+
+.cover { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); color: white; margin: -12mm; height: 210mm; display: flex; align-items: center; justify-content: center; page-break-after: always; }
+.cover-content { text-align: center; }
+.cover h1 { font-size: 28px; margin-bottom: 8px; }
+.subtitle { font-size: 14px; opacity: 0.7; margin-bottom: 30px; }
+.cover-stats { display: flex; gap: 30px; justify-content: center; margin: 30px 0; }
+.cs { text-align: center; }
+.cs-num { display: block; font-size: 36px; font-weight: 700; }
+.cs-label { font-size: 11px; opacity: 0.6; }
+.cover-meta { font-size: 10px; opacity: 0.5; line-height: 1.8; margin-top: 30px; }
+
+.page { page-break-before: always; }
+h2 { font-size: 13px; color: #1a1a2e; margin: 10px 0 6px 0; padding-bottom: 3px; border-bottom: 2px solid #1a1a2e; }
+h3 { font-size: 11px; color: #444; margin: 6px 0 4px 0; }
+.body-text { font-size: 10px; line-height: 1.6; margin: 4px 0 8px 0; }
+table { width: 100%; border-collapse: collapse; font-size: 9px; margin: 4px 0; }
+th, td { padding: 3px 5px; text-align: left; border-bottom: 1px solid #eee; }
+th { background: #f0f0f0; font-weight: 600; font-size: 8px; }
+.price { color: #e15759; font-weight: 700; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+.two-col { display: flex; gap: 15px; }
+.col { flex: 1; }
+
+.highlight-box { background: #f0f4ff; border-left: 3px solid #4e79a7; padding: 10px 12px; margin: 8px 0; font-size: 10px; line-height: 1.6; border-radius: 0 4px 4px 0; }
+
+.product-header { padding-bottom: 6px; margin-bottom: 4px; }
+.ph-meta { font-size: 9px; color: #666; margin-top: 3px; }
+
+.tech-section { margin-bottom: 8px; }
+.tech-label { display: inline-block; color: white; font-size: 9px; font-weight: 600; padding: 2px 8px; border-radius: 3px; margin-bottom: 3px; }
+.quote { font-size: 9px; color: #444; padding: 2px 0 2px 12px; border-left: 2px solid #ddd; margin: 2px 0; }
+.ts { color: #999; font-size: 8px; margin-right: 4px; }
+
+.kp-list { font-size: 9px; padding-left: 14px; margin: 2px 0; }
+.kp-list li { margin-bottom: 1px; }
+.phase-list { font-size: 8px; padding-left: 14px; margin: 2px 0; color: #555; columns: 2; }
+.phase-list li { margin-bottom: 1px; break-inside: avoid; }
+
+.visual-item { margin-bottom: 10px; border: 1px solid #e0e0e0; border-radius: 4px; overflow: hidden; }
+.visual-header { background: #f5f5f5; padding: 5px 8px; font-size: 9px; display: flex; gap: 10px; align-items: center; }
+.ts-badge { background: #4e79a7; color: white; padding: 1px 6px; border-radius: 3px; font-size: 8px; font-weight: 600; white-space: nowrap; }
+.visual-reason { font-weight: 600; }
+.visual-file { color: #999; font-size: 8px; margin-left: auto; }
+.visual-body { padding: 6px 8px; font-size: 8px; color: #555; line-height: 1.5; white-space: pre-wrap; max-height: 120px; overflow: hidden; }
+
+.insight { display: flex; gap: 10px; margin-bottom: 10px; padding: 10px; background: #f5f7ff; border-radius: 6px; }
+.insight-num { width: 28px; height: 28px; background: #4e79a7; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+.insight p { font-size: 9px; color: #555; margin-top: 2px; }
+.insight strong { font-size: 10px; }
+
+.footer { margin-top: 15px; text-align: center; font-size: 8px; color: #999; }
+</style>
+</head>
+<body>
+<div class="cover">
+        <div class="cover-content">
+            <h1>ショップチャンネル<br>6時間放送 分析レポート</h1>
+            <div class="subtitle">セールストーク構造 &times; 番組構成 &times; CV導線 の統合分析</div>
+            <div class="cover-stats">
+                <div class="cs"><span class="cs-num">7</span><span class="cs-label">商品</span></div>
+                <div class="cs"><span class="cs-num">360</span><span class="cs-label">分</span></div>
+                <div class="cs"><span class="cs-num">311</span><span class="cs-label">テクニック</span></div>
+                <div class="cs"><span class="cs-num">12,717</span><span class="cs-label">セグメント</span></div>
+            </div>
+            <div class="cover-meta">
+                分析日: 2026-04-10 | URL: https://www.youtube.com/watch?v=Vq3jz0c7oMs<br>
+                キャンペーン: 全員送料無料キャンペーン 4/10-4/16<br>
+                分析手法: Claude Code テキスト分析 + Gemini 2.5 Flash 視覚分析
+            </div>
+        </div>
+    </div><div class="page">
+        <h2>エグゼクティブサマリー</h2>
+        <p class="body-text">6時間の放送で<strong>7つの商品セグメント</strong>を分析。1商品あたり平均45-55分のサイクルで「導入→実演デモ(複数ラウンド)→価格発表→社会的証明→在庫カウントダウン→最終CTA→クロージング」の定型構造を持つ。最多テクニックは<strong>希少性（84件）</strong>。<strong>全員送料無料キャンペーン（4/10-16）</strong>が全セグメント共通の緊急性ドライバー。</p>
+        <h2>商品タイムライン</h2>
+        <svg width="720" height="227" viewBox="0 0 720 227"><line x1="0.0" y1="10" x2="0.0" y2="217" stroke="#ddd" stroke-width="0.5"/><text x="0.0" y="222" font-size="8" fill="#999" text-anchor="middle">0h</text><line x1="116.66666666666666" y1="10" x2="116.66666666666666" y2="217" stroke="#ddd" stroke-width="0.5"/><text x="116.66666666666666" y="222" font-size="8" fill="#999" text-anchor="middle">1h</text><line x1="233.33333333333331" y1="10" x2="233.33333333333331" y2="217" stroke="#ddd" stroke-width="0.5"/><text x="233.33333333333331" y="222" font-size="8" fill="#999" text-anchor="middle">2h</text><line x1="350.0" y1="10" x2="350.0" y2="217" stroke="#ddd" stroke-width="0.5"/><text x="350.0" y="222" font-size="8" fill="#999" text-anchor="middle">3h</text><line x1="466.66666666666663" y1="10" x2="466.66666666666663" y2="217" stroke="#ddd" stroke-width="0.5"/><text x="466.66666666666663" y="222" font-size="8" fill="#999" text-anchor="middle">4h</text><line x1="583.3333333333334" y1="10" x2="583.3333333333334" y2="217" stroke="#ddd" stroke-width="0.5"/><text x="583.3333333333334" y="222" font-size="8" fill="#999" text-anchor="middle">5h</text><line x1="700.0" y1="10" x2="700.0" y2="217" stroke="#ddd" stroke-width="0.5"/><text x="700.0" y="222" font-size="8" fill="#999" text-anchor="middle">6h</text><rect x="0.0" y="20" width="37.91666666666667" height="22" rx="3" fill="#4e79a7" opacity="0.85"/><text x="4.0" y="35" font-size="9" fill="white" font-weight="600">ファイテン ネックレス 2本セット</text><rect x="38.888888888888886" y="46" width="105.0" height="22" rx="3" fill="#f28e2b" opacity="0.85"/><text x="42.888888888888886" y="61" font-size="9" fill="white" font-weight="600">メルティリッチダウン フワモチケット /</text><rect x="466.66666666666663" y="46" width="100.13888888888889" height="22" rx="3" fill="#f28e2b" opacity="0.5"/><rect x="145.83333333333334" y="72" width="102.63425925925927" height="22" rx="3" fill="#e15759" opacity="0.85"/><text x="149.83333333333334" y="87" font-size="9" fill="white" font-weight="600">パルスイクロス 6枚セット</text><rect x="252.61574074074073" y="98" width="102.66666666666669" height="22" rx="3" fill="#76b7b2" opacity="0.85"/><text x="256.61574074074076" y="113" font-size="9" fill="white" font-weight="600">シルバーミーとし レースベスト＆プルオー</text><rect x="358.037037037037" y="124" width="103.47685185185186" height="22" rx="3" fill="#59a14f" opacity="0.85"/><text x="362.037037037037" y="139" font-size="9" fill="white" font-weight="600">あゆみ ルームシューズ かかとスポット </text><rect x="589.2314814814815" y="150" width="87.43518518518513" height="22" rx="3" fill="#edc948" opacity="0.85"/><text x="593.2314814814815" y="165" font-size="9" fill="white" font-weight="600">オロリナ 純金・18金ジュエリーコレクシ</text><rect x="680.5555555555555" y="176" width="19.379629629629576" height="22" rx="3" fill="#b07aa1" opacity="0.85"/><text x="684.5555555555555" y="191" font-size="9" fill="white" font-weight="600">センターンビオセーム ファンデーション </text></svg>
+        <table><thead><tr><th>商品名</th><th>時間帯</th><th>時間</th><th>価格</th><th>カテゴリ</th></tr></thead><tbody><tr><td><span class="dot" style="background:#4e79a7"></span>ファイテン ネックレス 2本セット</td><td>00:00〜19:30</td><td style="text-align:right">19.5分</td><td class="price">10,980円（2本セット / 1本あたり5,490円）</td><td>健康器具</td></tr><tr><td><span class="dot" style="background:#f28e2b"></span>メルティリッチダウン フワモチケット / シキパッド（シ</td><td>20:00〜74:00</td><td style="text-align:right">105.5分</td><td class="price">6,980円（ケット）/ 5,980円（シキパッド）/ 12,960円（マッチングプライス</td><td>寝具</td></tr><tr><td><span class="dot" style="background:#e15759"></span>パルスイクロス 6枚セット</td><td>75:00〜127:47</td><td style="text-align:right">52.8分</td><td class="price">3,980円（6枚セット / 1枚あたり664円）</td><td>掃除用品</td></tr><tr><td><span class="dot" style="background:#76b7b2"></span>シルバーミーとし レースベスト＆プルオーバー アンサンブ</td><td>129:55〜182:43</td><td style="text-align:right">52.8分</td><td class="price">5,990円（2点セット）</td><td>ファッション</td></tr><tr><td><span class="dot" style="background:#59a14f"></span>あゆみ ルームシューズ かかとスポット / のびのびソッ</td><td>184:08〜237:21</td><td style="text-align:right">53.2分</td><td class="price">3,990円（ルームシューズ、定価4,400円）/ 5,300円（ソックス4足組、定価6,</td><td>靴・靴下</td></tr><tr><td><span class="dot" style="background:#edc948"></span>オロリナ 純金・18金ジュエリーコレクション</td><td>303:02〜348:00</td><td style="text-align:right">45分</td><td class="price">49,900円〜899,000円</td><td>ジュエリー</td></tr><tr><td><span class="dot" style="background:#b07aa1"></span>センターンビオセーム ファンデーション 4ヶ月セット</td><td>350:00〜359:58</td><td style="text-align:right">10分</td><td class="price">5,990円（4ヶ月分、52%OFF）</td><td>コスメ</td></tr></tbody></table>
+        <div class="two-col" style="margin-top:10px;">
+            <div class="col"><h2>フェーズ別時間配分</h2><div style="display:flex;border-radius:4px;overflow:hidden;margin:8px 0;"><div style="width:8%;background:#4e79a7;padding:8px 6px;text-align:center;color:white;font-size:10px;font-weight:600;">導入 8%</div><div style="width:45%;background:#59a14f;padding:8px 6px;text-align:center;color:white;font-size:10px;font-weight:600;">実演デモ 45%</div><div style="width:5%;background:#f28e2b;padding:8px 6px;text-align:center;color:white;font-size:10px;font-weight:600;">価格発表 5%</div><div style="width:10%;background:#76b7b2;padding:8px 6px;text-align:center;color:white;font-size:10px;font-weight:600;">社会的証明 10%</div><div style="width:25%;background:#e15759;padding:8px 6px;text-align:center;color:white;font-size:10px;font-weight:600;">CTA・在庫訴求 25%</div><div style="width:7%;background:#edc948;padding:8px 6px;text-align:center;color:white;font-size:10px;font-weight:600;">クロージング 7%</div></div></div>
+            <div class="col"><h2>テクニック分布（全311件）</h2><div style="display:flex;align-items:center;gap:8px;margin:3px 0;"><span style="width:80px;text-align:right;font-size:10px;font-weight:600;">希少性</span><div style="background:#e15759;height:16px;width:200px;border-radius:3px;"></div><span style="font-size:10px;">84 (27.0%)</span></div><div style="display:flex;align-items:center;gap:8px;margin:3px 0;"><span style="width:80px;text-align:right;font-size:10px;font-weight:600;">社会的証明</span><div style="background:#4e79a7;height:16px;width:174px;border-radius:3px;"></div><span style="font-size:10px;">73 (23.5%)</span></div><div style="display:flex;align-items:center;gap:8px;margin:3px 0;"><span style="width:80px;text-align:right;font-size:10px;font-weight:600;">アンカリング</span><div style="background:#f28e2b;height:16px;width:110px;border-radius:3px;"></div><span style="font-size:10px;">46 (14.8%)</span></div><div style="display:flex;align-items:center;gap:8px;margin:3px 0;"><span style="width:80px;text-align:right;font-size:10px;font-weight:600;">権威</span><div style="background:#59a14f;height:16px;width:98px;border-radius:3px;"></div><span style="font-size:10px;">41 (13.2%)</span></div><div style="display:flex;align-items:center;gap:8px;margin:3px 0;"><span style="width:80px;text-align:right;font-size:10px;font-weight:600;">緊急性</span><div style="background:#edc948;height:16px;width:81px;border-radius:3px;"></div><span style="font-size:10px;">34 (10.9%)</span></div><div style="display:flex;align-items:center;gap:8px;margin:3px 0;"><span style="width:80px;text-align:right;font-size:10px;font-weight:600;">比較</span><div style="background:#76b7b2;height:16px;width:79px;border-radius:3px;"></div><span style="font-size:10px;">33 (10.6%)</span></div></div>
+        </div>
+    </div><div class="page">
+        <h2>共通トーク構造</h2>
+        <div class="highlight-box">導入(商品名・ゲスト紹介) → 実演デモ(複数ラウンド) → 価格発表(アンカリング) → 社会的証明(口コミ・注文数) → 在庫カウントダウン(希少性エスカレーション) → 最終CTA → クロージング。1商品あたり約45-55分のサイクル。</div>
+        <h2>頻出フレーズ TOP 10</h2>
+        <table><thead><tr><th>フレーズ</th><th>回数</th><th>文脈</th></tr></thead><tbody><tr><td>「送料無料キャンペーン」</td><td style="text-align:right">30</td><td>全セグメントで繰り返し</td></tr><tr><td>「お電話○○件/○○名」</td><td style="text-align:right">25</td><td>リアルタイム注文数報告</td></tr><tr><td>「ラストチャンス」</td><td style="text-align:right">15</td><td>在庫僅少時の緊急性</td></tr><tr><td>「○○点を切りました/切ります」</td><td style="text-align:right">40</td><td>在庫カウントダウン</td></tr><tr><td>「いつ登場するか/次はいつか分からない」</td><td style="text-align:right">8</td><td>再入荷未定の希少性</td></tr><tr><td>「受付終了」</td><td style="text-align:right">10</td><td>特定カラー/サイズの完売</td></tr><tr><td>「ウェイトリスト」</td><td style="text-align:right">8</td><td>完売後の待機リスト</td></tr><tr><td>「手作り/手作業/職人」</td><td style="text-align:right">12</td><td>生産限界の正当化</td></tr><tr><td>「メーカー希望○○円のところ」</td><td style="text-align:right">15</td><td>アンカリングの定型句</td></tr><tr><td>「日本製」</td><td style="text-align:right">5</td><td>品質の権威付け</td></tr></tbody></table>
+    </div><div class="page">
+            <div class="product-header" style="border-bottom:3px solid #4e79a7;">
+                <h2 style="border:none;margin:0;padding:0;">ファイテン ネックレス 2本セット</h2>
+                <div class="ph-meta">ファイテン (Phiten) | 00:00〜19:30 (19.5分) | <span class="price">10,980円（2本セット / 1本あたり5,490円）</span> | 品番: None</div>
+            </div>
+            <div class="two-col" style="margin-top:10px;">
+                <div class="col" style="flex:2;">
+                    <h3>テクニック実例（引用+タイムスタンプ）</h3>
+                    <div class="tech-section"><div class="tech-label" style="background:#e15759">希少性 (6)</div><div class="quote"><span class="ts">[1:04]</span> ご用意できるタイミングって本当にありませんから</div><div class="quote"><span class="ts">[2:02]</span> ブラックシルバーからがすごい引き及びで動いておりまして</div><div class="quote"><span class="ts">[2:07]</span> 4日前後は700を切ります</div><div class="quote"><span class="ts">[19:31]</span> ブラックシルバーもご用意数なんと300個切っております</div></div><div class="tech-section"><div class="tech-label" style="background:#4e79a7">社会的証明 (6)</div><div class="quote"><span class="ts">[0:13]</span> リピーターのポンス様、前回半信半疑でネックレスを購入して、今必須アイテムです</div><div class="quote"><span class="ts">[4:23]</span> 2千件を超えるご注文完了しております</div><div class="quote"><span class="ts">[6:28]</span> 口コミを見て、届いた夜からつけてみました。びっくりしました</div><div class="quote"><span class="ts">[7:24]</span> 89歳になりましたが、半年以上使っていますが本当にびっくり</div></div><div class="tech-section"><div class="tech-label" style="background:#f28e2b">アンカリング (3)</div><div class="quote"><span class="ts">[10:07]</span> メーカーで8,580円。今日は2本選べて10,980円、1本あたり5,490円</div><div class="quote"><span class="ts">[21:38]</span> 62%オフ</div><div class="quote"><span class="ts">[25:48]</span> メーカー希望は上がっているが、お値段は変更なく据え置き 6,980円</div></div><div class="tech-section"><div class="tech-label" style="background:#76b7b2">比較 (3)</div><div class="quote"><span class="ts">[11:46]</span> 頭が5.4キロだったら前傾前になると約4倍22キロの負担</div><div class="quote"><span class="ts">[21:11]</span> 高級ダウンケット上回る保温・ムレにくさ</div><div class="quote"><span class="ts">[21:18]</span> ほこり量は高級ダウンケットの約十分の一</div></div><div class="tech-section"><div class="tech-label" style="background:#59a14f">権威 (3)</div><div class="quote"><span class="ts">[3:17]</span> 管理医療機器としての装着部位のこり、血行の改善</div><div class="quote"><span class="ts">[15:06]</span> 野球選手、舞台の俳優、ミュージカルの方</div><div class="quote"><span class="ts">[20:37]</span> 1000位の総合商社モリリン</div></div><div class="tech-section"><div class="tech-label" style="background:#edc948">緊急性 (3)</div><div class="quote"><span class="ts">[4:10]</span> 今日から必ず得するキャンペーン、送料無料16日まで</div><div class="quote"><span class="ts">[18:29]</span> いつまで続けられるか分からない</div><div class="quote"><span class="ts">[25:07]</span> お急ぎいただきたい</div></div>
+                </div>
+                <div class="col" style="flex:1;">
+                    <h3>テクニック分布</h3>
+                    <div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">社会的証明</span><div style="background:#4e79a7;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">6</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">希少性</span><div style="background:#e15759;height:13px;width:93px;border-radius:2px;"></div><span style="font-size:9px;">4</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">権威</span><div style="background:#59a14f;height:13px;width:70px;border-radius:2px;"></div><span style="font-size:9px;">3</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">緊急性</span><div style="background:#edc948;height:13px;width:47px;border-radius:2px;"></div><span style="font-size:9px;">2</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">アンカリング</span><div style="background:#f28e2b;height:13px;width:23px;border-radius:2px;"></div><span style="font-size:9px;">1</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">比較</span><div style="background:#76b7b2;height:13px;width:23px;border-radius:2px;"></div><span style="font-size:9px;">1</span></div>
+                    <h3 style="margin-top:12px;">キーフレーズ</h3>
+                    <ul class="kp-list"><li>ご用意できるタイミングって本当にありません</li><li>管理医療機器としての装着部位のこり、血行の改善</li><li>2千件を超えるご注文</li><li>1本あたり5,490円に見えない素敵なプレゼント</li></ul>
+                </div>
+            </div>
+            <h3 style="margin-top:10px;">フェーズ構成</h3>
+            <ul class="phase-list"><li><strong>cta</strong> (00:00〜02:00): 番組開始時点で既に販売中、クロージング段階</li><li><strong>social_proof</strong> (00:13〜02:00): リピーターの声紹介</li><li><strong>demo</strong> (02:28〜09:00): ブラックゴールド付け替え実演</li><li><strong>price_reveal</strong> (10:00〜12:00): メーカー8,580円 vs 2本10,980円</li><li><strong>demo</strong> (12:18〜18:00): 磁気デモ（ホワイトボード・クリップ）</li><li><strong>close</strong> (19:00〜19:30): クロージング</li></ul>
+        </div><div class="page">
+            <div class="product-header" style="border-bottom:3px solid #f28e2b;">
+                <h2 style="border:none;margin:0;padding:0;">メルティリッチダウン フワモチケット / シキパッド（ショップスターバリュー）</h2>
+                <div class="ph-meta">モリリン | 20:00〜74:00 (105.5分) | <span class="price">6,980円（ケット）/ 5,980円（シキパッド）/ 12,960円（マッチングプライス）</span> | 品番: 812356（ケットシングル）/ 811364（枕カバー）</div>
+            </div>
+            <div class="two-col" style="margin-top:10px;">
+                <div class="col" style="flex:2;">
+                    <h3>テクニック実例（引用+タイムスタンプ）</h3>
+                    <div class="tech-section"><div class="tech-label" style="background:#e15759">希少性 (23)</div><div class="quote"><span class="ts">[24:57]</span> 去年は22時に全て売切れ。今年は午前中に全中売切れの可能性</div><div class="quote"><span class="ts">[28:27]</span> 2026年度の追加生産の予定はありません</div><div class="quote"><span class="ts">[31:34]</span> 1日20枚しか作れない</div><div class="quote"><span class="ts">[37:48]</span> 生産終了だったら、うちで買えなきゃなくなったらもう買えなくなる。おしまいです</div></div><div class="tech-section"><div class="tech-label" style="background:#4e79a7">社会的証明 (13)</div><div class="quote"><span class="ts">[23:16]</span> 8年の実績よりも、昨年とか過去最高の売り上げを記録</div><div class="quote"><span class="ts">[41:18]</span> 口コミ平均4.46</div><div class="quote"><span class="ts">[41:52]</span> まるでダウン、モリリンさん初めての購入です。冬の北海道でまだ3度、マストバイです</div><div class="quote"><span class="ts">[41:43]</span> 全部サイズを合わせると2万セット近いオーダーをいただいた</div></div><div class="tech-section"><div class="tech-label" style="background:#f28e2b">アンカリング (11)</div><div class="quote"><span class="ts">[21:38]</span> 62%オフ</div><div class="quote"><span class="ts">[25:48]</span> メーカー希望は上がっているが、お値段は変更なく据え置き 6,980円</div><div class="quote"><span class="ts">[36:20]</span> メーカー希望18,400円が今日は6,980円</div><div class="quote"><span class="ts">[44:09]</span> 本当は18,400円、12,000円くらいで販売しないと。30周年だから62%オフ</div></div><div class="tech-section"><div class="tech-label" style="background:#76b7b2">比較 (12)</div><div class="quote"><span class="ts">[21:11]</span> 高級ダウンケット上回る保温・ムレにくさ</div><div class="quote"><span class="ts">[21:18]</span> ほこり量は高級ダウンケットの約十分の一</div><div class="quote"><span class="ts">[33:43]</span> 高級ダウンケットの保温性2.61に対し3.43。羽毛を遥かに超える</div><div class="quote"><span class="ts">[34:23]</span> ムレにくさ：高級ダウンケット79.4%→メルティリッチ90.4%</div></div><div class="tech-section"><div class="tech-label" style="background:#59a14f">権威 (6)</div><div class="quote"><span class="ts">[20:37]</span> 1000位の総合商社モリリン</div><div class="quote"><span class="ts">[35:16]</span> 日本アトピー協会推薦品</div><div class="quote"><span class="ts">[30:50]</span> プロの手引き職人さん、高級なオフトンを作ってくださる職人</div><div class="quote"><span class="ts">[37:41]</span> ショップチャンネル先行販売</div></div><div class="tech-section"><div class="tech-label" style="background:#edc948">緊急性 (9)</div><div class="quote"><span class="ts">[25:07]</span> お急ぎいただきたい</div><div class="quote"><span class="ts">[33:05]</span> 早く行ってください、早く行ってます</div><div class="quote"><span class="ts">[43:06]</span> ガマンすることなくグッスリ。寝具の季節のハザカイキの決定版</div><div class="quote"><span class="ts">[50:22]</span> 送料無料の初日の大感謝版です</div></div>
+                </div>
+                <div class="col" style="flex:1;">
+                    <h3>テクニック分布</h3>
+                    <div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">希少性</span><div style="background:#e15759;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">25</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">社会的証明</span><div style="background:#4e79a7;height:13px;width:84px;border-radius:2px;"></div><span style="font-size:9px;">15</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">アンカリング</span><div style="background:#f28e2b;height:13px;width:56px;border-radius:2px;"></div><span style="font-size:9px;">10</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">比較</span><div style="background:#76b7b2;height:13px;width:56px;border-radius:2px;"></div><span style="font-size:9px;">10</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">緊急性</span><div style="background:#edc948;height:13px;width:45px;border-radius:2px;"></div><span style="font-size:9px;">8</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">権威</span><div style="background:#59a14f;height:13px;width:28px;border-radius:2px;"></div><span style="font-size:9px;">5</span></div>
+                    <h3 style="margin-top:12px;">キーフレーズ</h3>
+                    <ul class="kp-list"><li>高級ダウンケット上回る保温・ムレにくさ、ほこり量は約十分の一</li><li>1日20枚しか作れない</li><li>2026年度の追加生産の予定はありません</li><li>30周年だからこそやったことないことをやりましょう</li><li>口コミ平均4.46</li><li>メルティリッチのショップスターバリューが送料無料になったことは、はじめて</li></ul>
+                </div>
+            </div>
+            <h3 style="margin-top:10px;">フェーズ構成</h3>
+            <ul class="phase-list"><li><strong>intro</strong> (20:27〜22:00): ゲスト杉木氏（モリリン部長）紹介</li><li><strong>price_reveal</strong> (21:35〜22:30): 62%オフ発表</li><li><strong>demo</strong> (29:26〜36:00): ナノフィールファイバー比較デモ</li><li><strong>comparison</strong> (33:30〜35:00): 保温3.43 vs 2.61、ムレにくさ90.4% vs 79.4%、ほこり1/10</li><li><strong>price_reveal</strong> (36:17〜37:00): 18,400円→6,980円</li><li><strong>cta</strong> (38:00〜40:00): 在庫報告開始</li><li><strong>social_proof</strong> (41:06〜43:00): 口コミ4.46、2万セット近いオーダー</li><li><strong>close</strong> (72:33〜74:00): クロージング</li><li><strong>intro</strong> (240:00〜242:00): 2回目登場、15,000件超報告</li><li><strong>demo</strong> (247:40〜254:00): ナノフィールファイバーデモ2回目</li><li><strong>close</strong> (286:54〜291:30): 最終クロージング、在庫2割台</li></ul>
+        </div><div class="page">
+            <div class="product-header" style="border-bottom:3px solid #e15759;">
+                <h2 style="border:none;margin:0;padding:0;">パルスイクロス 6枚セット</h2>
+                <div class="ph-meta">コパ・コーポレーション | 75:00〜127:47 (52.8分) | <span class="price">3,980円（6枚セット / 1枚あたり664円）</span> | 品番: 819835</div>
+            </div>
+            <div class="two-col" style="margin-top:10px;">
+                <div class="col" style="flex:2;">
+                    <h3>テクニック実例（引用+タイムスタンプ）</h3>
+                    <div class="tech-section"><div class="tech-label" style="background:#e15759">希少性 (14)</div><div class="quote"><span class="ts">[76:21]</span> オレンジミックスはなんと若干数のご用意です</div><div class="quote"><span class="ts">[83:36]</span> 千葉で手作りで、本当に数量ができないですよ</div><div class="quote"><span class="ts">[91:15]</span> 昨年はたった1回しか通常商品がなかった</div><div class="quote"><span class="ts">[91:30]</span> いつまでこの値段で出せるかもわかりません</div></div><div class="tech-section"><div class="tech-label" style="background:#4e79a7">社会的証明 (23)</div><div class="quote"><span class="ts">[75:42]</span> 累計販売数1,588万枚を突破</div><div class="quote"><span class="ts">[75:52]</span> 口コミ評価4.2以上</div><div class="quote"><span class="ts">[86:35]</span> リピーター花子様：家に来た娘がグレージュを欲しいというので</div><div class="quote"><span class="ts">[87:28]</span> 初購入のミソン様：試しに実家から1枚もらってきたほうがいい。洗剤使わないところも掃除ができていい</div></div><div class="tech-section"><div class="tech-label" style="background:#f28e2b">アンカリング (9)</div><div class="quote"><span class="ts">[77:05]</span> メーカー店頭990円/枚→ショップチャンネル本日1枚あたり664円</div><div class="quote"><span class="ts">[86:00]</span> 元は920円くらいだった時もあったが上がり、店頭990円。今日は664円</div><div class="quote"><span class="ts">[98:30]</span> メーカーさんでは1枚990円まで値段上がりました。ところが1枚あたり664円</div><div class="quote"><span class="ts">[107:37]</span> 価格調整がすんごい大変。この価格を本当にきにしんですと押し合ってくださった</div></div><div class="tech-section"><div class="tech-label" style="background:#76b7b2">比較 (5)</div><div class="quote"><span class="ts">[81:11]</span> パルスイクロス vs 綿造品の油性ペン比較デモ</div><div class="quote"><span class="ts">[100:35]</span> 普通の不効で落ちるのは落ちるが伸びてる。パルスイクロスは力いらず</div><div class="quote"><span class="ts">[101:30]</span> 油性ペン：綿造品は水では落ちないが、パルスイクロスは水に触れた瞬間浮かび上がる</div><div class="quote"><span class="ts">[103:03]</span> 普通の綿：洗濯しても汚れが残って匂いも残る。パルスイクロスはケチャップ+マヨネーズも完全除去</div></div><div class="tech-section"><div class="tech-label" style="background:#59a14f">権威 (7)</div><div class="quote"><span class="ts">[78:07]</span> コパ・コーポレーション実演販売士・兼営業課長コメタニさん</div><div class="quote"><span class="ts">[75:42]</span> 累計1,588万枚突破の実績</div><div class="quote"><span class="ts">[91:47]</span> テレビ通販業界でショップチャンネルの価格をやり取りする窓口の方が実演販売士として</div><div class="quote"><span class="ts">[114:19]</span> プロ仕様：焼肉店、お好み焼き店、介護施設、病院、自動車整備工場がプロとして使っている</div></div><div class="tech-section"><div class="tech-label" style="background:#edc948">緊急性 (9)</div><div class="quote"><span class="ts">[83:41]</span> この回が終わると次いつ届けられるか。昨年も通常商品は1回だけ</div><div class="quote"><span class="ts">[87:10]</span> 今回予定がされておりませんから、今日からスタート</div><div class="quote"><span class="ts">[91:30]</span> いつまでこの値段で出せるかもわかりません</div><div class="quote"><span class="ts">[97:28]</span> 通常商品で逃したら次は何か月後なんて待たないと手に入らない</div></div>
+                </div>
+                <div class="col" style="flex:1;">
+                    <h3>テクニック分布</h3>
+                    <div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">希少性</span><div style="background:#e15759;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">12</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">社会的証明</span><div style="background:#4e79a7;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">12</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">アンカリング</span><div style="background:#f28e2b;height:13px;width:70px;border-radius:2px;"></div><span style="font-size:9px;">6</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">緊急性</span><div style="background:#edc948;height:13px;width:70px;border-radius:2px;"></div><span style="font-size:9px;">6</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">比較</span><div style="background:#76b7b2;height:13px;width:58px;border-radius:2px;"></div><span style="font-size:9px;">5</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">権威</span><div style="background:#59a14f;height:13px;width:47px;border-radius:2px;"></div><span style="font-size:9px;">4</span></div>
+                    <h3 style="margin-top:12px;">キーフレーズ</h3>
+                    <ul class="kp-list"><li>累計販売数1,588万枚を突破</li><li>口コミ評価4.2以上、4.5が80%以上</li><li>1枚あたり664円</li><li>千葉で手作り、数量ができない</li><li>プロ仕様：焼肉店、介護施設、病院が使ってる</li><li>5年10年使える</li></ul>
+                </div>
+            </div>
+            <h3 style="margin-top:10px;">フェーズ構成</h3>
+            <ul class="phase-list"><li><strong>intro</strong> (75:10〜78:00): VTR・ナレーション、累計1,588万枚</li><li><strong>demo</strong> (80:00〜97:00): 油汚れ・油性ペン・ケチャップ等の実演</li><li><strong>price_reveal</strong> (98:30〜99:00): 1枚664円</li><li><strong>demo</strong> (100:22〜118:00): 第2・第3ラウンドのデモ</li><li><strong>cta</strong> (120:00〜126:33): 3,300件超、最終CTA</li><li><strong>close</strong> (126:49〜127:47): クロージング</li></ul>
+        </div><div class="page">
+            <div class="product-header" style="border-bottom:3px solid #76b7b2;">
+                <h2 style="border:none;margin:0;padding:0;">シルバーミーとし レースベスト＆プルオーバー アンサンブルセット</h2>
+                <div class="ph-meta">シルバーミーとし（サイトー両子デザイン） | 129:55〜182:43 (52.8分) | <span class="price">5,990円（2点セット）</span> | 品番: None</div>
+            </div>
+            <div class="two-col" style="margin-top:10px;">
+                <div class="col" style="flex:2;">
+                    <h3>テクニック実例（引用+タイムスタンプ）</h3>
+                    <div class="tech-section"><div class="tech-label" style="background:#e15759">希少性 (20)</div><div class="quote"><span class="ts">[134:33]</span> 来年のことは本当に分かりません</div><div class="quote"><span class="ts">[144:03]</span> Sがウェイトリストに変わっております</div><div class="quote"><span class="ts">[144:05]</span> Mサイズ100点を切っちゃいます</div><div class="quote"><span class="ts">[144:14]</span> 3Lの4カゼンゴ同様でございます</div></div><div class="tech-section"><div class="tech-label" style="background:#4e79a7">社会的証明 (13)</div><div class="quote"><span class="ts">[134:16]</span> 1800件以上のご注文、お電話が今400件以上</div><div class="quote"><span class="ts">[144:59]</span> 470点という注文をありがとうございます</div><div class="quote"><span class="ts">[145:09]</span> 500件以上のお電話をいただいております</div><div class="quote"><span class="ts">[156:19]</span> 30分ほどで7,600件ものご注文</div></div><div class="tech-section"><div class="tech-label" style="background:#f28e2b">アンカリング (11)</div><div class="quote"><span class="ts">[131:02]</span> 5,000〜9,000円してもおかしくないようなものなのに、なんと2点で5,990円</div><div class="quote"><span class="ts">[135:15]</span> 単純計算2000円くらい（プルオーバー1枚あたり）</div><div class="quote"><span class="ts">[151:52]</span> この予算がみなさんどのくらい考えられますか、5,990円ですよ</div><div class="quote"><span class="ts">[156:00]</span> 5千円しないんです、4千990円（パンツ）</div></div><div class="tech-section"><div class="tech-label" style="background:#76b7b2">比較 (4)</div><div class="quote"><span class="ts">[152:07]</span> 若い方のレースは多いが、大人が着ようと思った時になかなか合うものが見つからない</div><div class="quote"><span class="ts">[163:23]</span> ペラペラのシャリシャリレースじゃない、柔らかくて厚さのあるコードレース</div><div class="quote"><span class="ts">[191:11]</span> スリッパは簡単だが抜けやすく転倒の原因</div><div class="quote"><span class="ts">[192:02]</span> 転倒は室内が大陰、6割以上（スリッパ vs ルームシューズの比較前提）</div></div><div class="tech-section"><div class="tech-label" style="background:#59a14f">権威 (7)</div><div class="quote"><span class="ts">[133:27]</span> デザイナーサイトー両子氏をお招き（デザイナー権威）</div><div class="quote"><span class="ts">[134:26]</span> 1年前から企画している（開発期間の権威）</div><div class="quote"><span class="ts">[152:30]</span> 日本でパターン作ってますから、しっかりと肩口のところに前と後ろで傾斜を変えて</div><div class="quote"><span class="ts">[163:06]</span> 不織布の素材とコードレースのコントラスト解説</div></div><div class="tech-section"><div class="tech-label" style="background:#edc948">緊急性 (6)</div><div class="quote"><span class="ts">[145:03]</span> Webサイトをぜひともご利用になってください（電話混雑による代替案内）</div><div class="quote"><span class="ts">[166:29]</span> あるときがもうチャンスです</div><div class="quote"><span class="ts">[172:52]</span> 夜までなくなるかも…夜どうしましょう</div><div class="quote"><span class="ts">[174:09]</span> もう今1割台になろうとしてます</div></div>
+                </div>
+                <div class="col" style="flex:1;">
+                    <h3>テクニック分布</h3>
+                    <div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">希少性</span><div style="background:#e15759;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">20</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">社会的証明</span><div style="background:#4e79a7;height:13px;width:98px;border-radius:2px;"></div><span style="font-size:9px;">14</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">アンカリング</span><div style="background:#f28e2b;height:13px;width:56px;border-radius:2px;"></div><span style="font-size:9px;">8</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">緊急性</span><div style="background:#edc948;height:13px;width:42px;border-radius:2px;"></div><span style="font-size:9px;">6</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">権威</span><div style="background:#59a14f;height:13px;width:35px;border-radius:2px;"></div><span style="font-size:9px;">5</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">比較</span><div style="background:#76b7b2;height:13px;width:28px;border-radius:2px;"></div><span style="font-size:9px;">4</span></div>
+                    <h3 style="margin-top:12px;">キーフレーズ</h3>
+                    <ul class="kp-list"><li>なんと2点で5,990円</li><li>5,000〜9,000円してもおかしくない</li><li>注文数が1万件を突破</li><li>1年前から企画</li><li>工場さんが全部ハサミを持って手で切ってる</li><li>あるときがもうチャンスです</li></ul>
+                </div>
+            </div>
+            <h3 style="margin-top:10px;">フェーズ構成</h3>
+            <ul class="phase-list"><li><strong>intro</strong> (129:55〜131:00): ゴゴバリュー紹介開始</li><li><strong>price_reveal</strong> (130:59〜131:30): 2点セット5,990円</li><li><strong>demo</strong> (133:27〜150:00): デザイナー登場、素材・カーブライン解説</li><li><strong>cta</strong> (150:43〜155:00): 在庫急減、7,000件→1万件</li><li><strong>demo</strong> (155:06〜178:00): パンツ紹介、コーデ提案</li><li><strong>close</strong> (180:00〜182:43): 最終クロージング</li></ul>
+        </div><div class="page">
+            <div class="product-header" style="border-bottom:3px solid #59a14f;">
+                <h2 style="border:none;margin:0;padding:0;">あゆみ ルームシューズ かかとスポット / のびのびソックス</h2>
+                <div class="ph-meta">あゆみ（アイウム/AYUMI）/ 株式会社徳武産業 | 184:08〜237:21 (53.2分) | <span class="price">3,990円（ルームシューズ、定価4,400円）/ 5,300円（ソックス4足組、定価6,160円）</span> | 品番: 799758（ルームシューズ）/ 799754（ソックス）/ 809937（大きめ）</div>
+            </div>
+            <div class="two-col" style="margin-top:10px;">
+                <div class="col" style="flex:2;">
+                    <h3>テクニック実例（引用+タイムスタンプ）</h3>
+                    <div class="tech-section"><div class="tech-label" style="background:#e15759">希少性 (17)</div><div class="quote"><span class="ts">[190:07]</span> ご準備もあるうちということになります。おはやめのご注文がおすすめ</div><div class="quote"><span class="ts">[206:48]</span> レッドM 4日前後200切ります</div><div class="quote"><span class="ts">[207:03]</span> ネイビーLL 4日前後100切っています</div><div class="quote"><span class="ts">[209:01]</span> 大きめサイズ100切りました</div></div><div class="tech-section"><div class="tech-label" style="background:#4e79a7">社会的証明 (18)</div><div class="quote"><span class="ts">[186:02]</span> 販売累計足数が2500万足達成</div><div class="quote"><span class="ts">[209:33]</span> 78歳：とてもよい靴です、プレゼントしてくれた子供に感謝</div><div class="quote"><span class="ts">[209:53]</span> リハビリの先生がこんなよい靴があるんですねと言っていました（80歳）</div><div class="quote"><span class="ts">[213:27]</span> 800件のオーダーを超えている</div></div><div class="tech-section"><div class="tech-label" style="background:#f28e2b">アンカリング (4)</div><div class="quote"><span class="ts">[219:25]</span> 4,400円のところ3,990円</div><div class="quote"><span class="ts">[228:57]</span> 6,160円のところ5,300円（ソックス）</div><div class="quote"><span class="ts">[237:34]</span> 6,160円のところ5,300円（振り返り）</div><div class="quote"><span class="ts">[237:40]</span> 4,400円のところ3,990円（振り返り）</div></div><div class="tech-section"><div class="tech-label" style="background:#76b7b2">比較 (10)</div><div class="quote"><span class="ts">[191:11]</span> スリッパは簡単だが抜けやすく転倒の原因</div><div class="quote"><span class="ts">[192:02]</span> 転倒は室内が大陰、6割以上（スリッパ vs ルームシューズの比較前提）</div><div class="quote"><span class="ts">[201:30]</span> スリッパで階段を上る実演 vs ルームシューズの安定性比較</div><div class="quote"><span class="ts">[205:47]</span> スリッパのペタペタ音 vs ルームシューズの静かさ実演比較</div></div><div class="tech-section"><div class="tech-label" style="background:#59a14f">権威 (12)</div><div class="quote"><span class="ts">[185:56]</span> 高齢者向けシューズの分野、国内トップシェア</div><div class="quote"><span class="ts">[186:02]</span> 30年、2500万足達成</div><div class="quote"><span class="ts">[193:20]</span> 東京消防庁の救急搬送データから見る日常生活事故データ</div><div class="quote"><span class="ts">[204:58]</span> 靴作り10年以上の知見で靴底にこだわった</div></div><div class="tech-section"><div class="tech-label" style="background:#edc948">緊急性 (6)</div><div class="quote"><span class="ts">[190:07]</span> おはやめのご注文がおすすめです</div><div class="quote"><span class="ts">[196:34]</span> 母の日が近い、送料無料の今がチャンス</div><div class="quote"><span class="ts">[218:28]</span> 今日実家に送ろうでもいい。直接送ってください。送料無料で</div><div class="quote"><span class="ts">[228:44]</span> 母の日のプレゼントにもぴったり（母の日の時期的緊急性）</div></div>
+                </div>
+                <div class="col" style="flex:1;">
+                    <h3>テクニック分布</h3>
+                    <div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">社会的証明</span><div style="background:#4e79a7;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">19</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">権威</span><div style="background:#59a14f;height:13px;width:88px;border-radius:2px;"></div><span style="font-size:9px;">12</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">希少性</span><div style="background:#e15759;height:13px;width:81px;border-radius:2px;"></div><span style="font-size:9px;">11</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">比較</span><div style="background:#76b7b2;height:13px;width:66px;border-radius:2px;"></div><span style="font-size:9px;">9</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">アンカリング</span><div style="background:#f28e2b;height:13px;width:59px;border-radius:2px;"></div><span style="font-size:9px;">8</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">緊急性</span><div style="background:#edc948;height:13px;width:37px;border-radius:2px;"></div><span style="font-size:9px;">5</span></div>
+                    <h3 style="margin-top:12px;">キーフレーズ</h3>
+                    <ul class="kp-list"><li>高齢者向けシューズ国内トップシェア</li><li>販売累計2500万足、来年で70年</li><li>転倒は室内が大陰、6割以上（東京消防庁データ）</li><li>スリッパは抜けやすく転倒の原因</li><li>パタパタ音がしない</li><li>逆発想：一点じゃなくて全体にゴムを散らす</li></ul>
+                </div>
+            </div>
+            <h3 style="margin-top:10px;">フェーズ構成</h3>
+            <ul class="phase-list"><li><strong>intro</strong> (184:08〜186:00): ラインナップ紹介、ゲスト徳武聖古CEO</li><li><strong>demo</strong> (186:42〜190:00): ソックス開発背景、伸縮実演</li><li><strong>price_reveal</strong> (189:31〜190:00): ソックス6,160円→5,300円</li><li><strong>demo</strong> (190:16〜219:46): ルームシューズ転倒対策デモ（階段・段差・パタパタ音）</li><li><strong>demo</strong> (219:46〜237:00): ソックス詳細（風船デモ、ゴム分散、装具対応）</li><li><strong>close</strong> (237:14〜237:21): 母の日プレゼント訴求でクロージング</li></ul>
+        </div><div class="page">
+            <div class="product-header" style="border-bottom:3px solid #edc948;">
+                <h2 style="border:none;margin:0;padding:0;">オロリナ 純金・18金ジュエリーコレクション</h2>
+                <div class="ph-meta">オロリナ（株式会社オーロラ） | 303:02〜348:00 (45分) | <span class="price">49,900円〜899,000円</span> | 品番: 818207(チェーン)/818204(1/4oz)/818205(1/10oz)/818206(トインクル)/818208(ブレス)</div>
+            </div>
+            <div class="two-col" style="margin-top:10px;">
+                <div class="col" style="flex:2;">
+                    <h3>テクニック実例（引用+タイムスタンプ）</h3>
+                    <div class="tech-section"><div class="tech-label" style="background:#e15759">希少性 (17)</div><div class="quote"><span class="ts">[313:42]</span> ご準備数30点のみしかないようです</div><div class="quote"><span class="ts">[317:16]</span> ご用意が20数点に変わりまして</div><div class="quote"><span class="ts">[317:23]</span> こちらを作りできる数に限りがあります</div><div class="quote"><span class="ts">[324:00]</span> こういったワクを作る会社は一社しかございません</div></div><div class="tech-section"><div class="tech-label" style="background:#4e79a7">社会的証明 (9)</div><div class="quote"><span class="ts">[305:08]</span> 1月の放送の時も大好評</div><div class="quote"><span class="ts">[309:02]</span> 高い方がお客様が買っていただいている</div><div class="quote"><span class="ts">[309:34]</span> 昨年よりも勢いがかかっている</div><div class="quote"><span class="ts">[317:16]</span> すでにたくさんのご注文をいただいているようです</div></div><div class="tech-section"><div class="tech-label" style="background:#f28e2b">アンカリング (13)</div><div class="quote"><span class="ts">[307:00]</span> おねびき13万円以上</div><div class="quote"><span class="ts">[313:52]</span> 一回下がった時のお値段で設定させていただいております</div><div class="quote"><span class="ts">[320:12]</span> 57万2千のところ36万9千円、20万3千円引き</div><div class="quote"><span class="ts">[321:32]</span> 137万5千のところ89万9千、おねびき47万6千円</div></div><div class="tech-section"><div class="tech-label" style="background:#76b7b2">比較 (4)</div><div class="quote"><span class="ts">[306:03]</span> 今年1月29日に最高値約3万円、昨年度の今の時分に比べたら1万円以上高くなってる</div><div class="quote"><span class="ts">[315:28]</span> 2025年の4月1年前から考えてみても1万以上を振ってる</div><div class="quote"><span class="ts">[333:25]</span> 大きさを比較すると（1/10オンスと1/4オンスの並列比較）</div><div class="quote"><span class="ts">[354:23]</span> 油まみれ汗まみれの状態で比較：つけたほうとつけてないほう</div></div><div class="tech-section"><div class="tech-label" style="background:#59a14f">権威 (12)</div><div class="quote"><span class="ts">[304:31]</span> 株式会社オーロラ代表取締役社長</div><div class="quote"><span class="ts">[305:41]</span> 金は世界から注目されている金属、有事の金</div><div class="quote"><span class="ts">[307:28]</span> ダイレクトプライスでお届け、中間マージンゼロ</div><div class="quote"><span class="ts">[312:17]</span> 造幣局の検定マークがついたもの</div></div><div class="tech-section"><div class="tech-label" style="background:#edc948">緊急性 (7)</div><div class="quote"><span class="ts">[313:47]</span> このお値段ですからね、このおやすいかかくなんですよね</div><div class="quote"><span class="ts">[317:31]</span> 受注生産品です、65日前後でお届け</div><div class="quote"><span class="ts">[333:59]</span> 今日からスタートして初日でこういう事態</div><div class="quote"><span class="ts">[334:11]</span> 23日まで数があればこのお値段でいいとご用意していただきます</div></div>
+                </div>
+                <div class="col" style="flex:1;">
+                    <h3>テクニック分布</h3>
+                    <div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">希少性</span><div style="background:#e15759;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">10</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">アンカリング</span><div style="background:#f28e2b;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">10</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">権威</span><div style="background:#59a14f;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">10</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">社会的証明</span><div style="background:#4e79a7;height:13px;width:70px;border-radius:2px;"></div><span style="font-size:9px;">5</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">緊急性</span><div style="background:#edc948;height:13px;width:70px;border-radius:2px;"></div><span style="font-size:9px;">5</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">比較</span><div style="background:#76b7b2;height:13px;width:42px;border-radius:2px;"></div><span style="font-size:9px;">3</span></div>
+                    <h3 style="margin-top:12px;">キーフレーズ</h3>
+                    <ul class="kp-list"><li>金は今世界から注目されている金属、有事の金</li><li>中間マージンゼロのダイレクトプライス</li><li>造幣局の検定マーク付き</li><li>ワクを作る会社は日本に一社しかない</li><li>おねびき47万6千円</li><li>年末には金はさらに上がるとの専門家見解</li></ul>
+                </div>
+            </div>
+            <h3 style="margin-top:10px;">フェーズ構成</h3>
+            <ul class="phase-list"><li><strong>intro</strong> (303:02〜305:00): ラインナップ紹介、社長いわした氏</li><li><strong>authority</strong> (305:41〜307:00): 金相場・資産価値解説</li><li><strong>price_reveal</strong> (307:00〜308:00): 37万→23万9900円</li><li><strong>demo</strong> (310:00〜320:00): 装着デモ、造幣局マーク</li><li><strong>intro</strong> (320:00〜340:00): メイプルリーフコイン</li><li><strong>intro</strong> (340:32〜347:00): トインクルネックレス、ブレスレット</li><li><strong>close</strong> (347:20〜348:00): 振り返り</li></ul>
+        </div><div class="page">
+            <div class="product-header" style="border-bottom:3px solid #b07aa1;">
+                <h2 style="border:none;margin:0;padding:0;">センターンビオセーム ファンデーション 4ヶ月セット</h2>
+                <div class="ph-meta">センターンビオセーム / ハピエンス | 350:00〜359:58 (10分) | <span class="price">5,990円（4ヶ月分、52%OFF）</span> | 品番: 796930</div>
+            </div>
+            <div class="two-col" style="margin-top:10px;">
+                <div class="col" style="flex:2;">
+                    <h3>テクニック実例（引用+タイムスタンプ）</h3>
+                    <div class="tech-section"><div class="tech-label" style="background:#e15759">希少性 (2)</div><div class="quote"><span class="ts">[351:42]</span> レフィル50セットしかない</div><div class="quote"><span class="ts">[359:54]</span> 30点しかない</div></div><div class="tech-section"><div class="tech-label" style="background:#4e79a7">社会的証明 (3)</div><div class="quote"><span class="ts">[350:32]</span> 既に200件以上のオーダーをいただいております</div><div class="quote"><span class="ts">[352:06]</span> ハピエンスリップシリーズの127万本突破の大人気アイテム</div><div class="quote"><span class="ts">[356:28]</span> 300件を超えるオーダーをいただいております</div></div><div class="tech-section"><div class="tech-label" style="background:#f28e2b">アンカリング (3)</div><div class="quote"><span class="ts">[350:17]</span> 6,820円が5,990円、830円の差に5,720円相当のレフィルが入っている</div><div class="quote"><span class="ts">[355:47]</span> 52%オフ、お値引きが6550円</div><div class="quote"><span class="ts">[358:43]</span> 1ヶ月が498円</div></div><div class="tech-section"><div class="tech-label" style="background:#76b7b2">比較 (1)</div><div class="quote"><span class="ts">[354:23]</span> 油まみれ汗まみれの状態で比較：つけたほうとつけてないほう</div></div><div class="tech-section"><div class="tech-label" style="background:#59a14f">権威 (2)</div><div class="quote"><span class="ts">[352:17]</span> ビューティープロデューサー、ファンデーションを使い続けて20年以上のおいたは直すけさん</div><div class="quote"><span class="ts">[353:06]</span> ボータープルーフ、SPF50+PA++++、国内基準最高基準</div></div><div class="tech-section"><div class="tech-label" style="background:#edc948">緊急性 (2)</div><div class="quote"><span class="ts">[351:04]</span> 今日からどんな条件の方でも全員が送料無料</div><div class="quote"><span class="ts">[358:53]</span> 今日から送料が無料、王子送料が無料だった、教えてよって</div></div>
+                </div>
+                <div class="col" style="flex:1;">
+                    <h3>テクニック分布</h3>
+                    <div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">アンカリング</span><div style="background:#f28e2b;height:13px;width:140px;border-radius:2px;"></div><span style="font-size:9px;">3</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">希少性</span><div style="background:#e15759;height:13px;width:93px;border-radius:2px;"></div><span style="font-size:9px;">2</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">社会的証明</span><div style="background:#4e79a7;height:13px;width:93px;border-radius:2px;"></div><span style="font-size:9px;">2</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">権威</span><div style="background:#59a14f;height:13px;width:93px;border-radius:2px;"></div><span style="font-size:9px;">2</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">緊急性</span><div style="background:#edc948;height:13px;width:93px;border-radius:2px;"></div><span style="font-size:9px;">2</span></div><div style="display:flex;align-items:center;gap:4px;margin:2px 0;"><span style="width:60px;text-align:right;font-size:9px;">比較</span><div style="background:#76b7b2;height:13px;width:47px;border-radius:2px;"></div><span style="font-size:9px;">1</span></div>
+                    <h3 style="margin-top:12px;">キーフレーズ</h3>
+                    <ul class="kp-list"><li>7つやはだ</li><li>SPF50+ PA++++、国内基準最高</li><li>色選び不要</li><li>52%オフ、1ヶ月498円</li><li>10秒は任せください</li></ul>
+                </div>
+            </div>
+            <h3 style="margin-top:10px;">フェーズ構成</h3>
+            <ul class="phase-list"><li><strong>intro</strong> (350:00〜352:00): 4ヶ月分セット紹介</li><li><strong>price_reveal</strong> (350:17〜351:00): 5,990円、1ヶ月1,498円</li><li><strong>demo</strong> (354:23〜357:00): 油+水の肌に塗る実演</li><li><strong>cta</strong> (356:28〜359:58): 300件超、レフィル30点のみ</li></ul>
+        </div><div class="page">
+            <h2>Gemini 視覚分析ハイライト（スクリーンショット分析結果）</h2>
+            <p class="body-text">60枚のスクリーンショットをGemini 2.5 Flashで分析。テロップ・価格表示・QRコード・画面レイアウト等の視覚要素を抽出。以下は主要ポイントの抜粋。</p>
+            <div class="visual-item">
+                    <div class="visual-header">
+                        <span class="ts-badge">0分0秒</span>
+                        <span class="visual-reason">product_start — ファイテンネックレス販売中画面</span>
+                        <span class="visual-file">frame_0000_0s.jpg</span>
+                    </div>
+                    <div class="visual-body">```json
+{
+  &quot;screenshots&quot;: [
+    {
+      &quot;timestamp&quot;: &quot;00:00&quot;,
+      &quot;description&quot;: &quot;ファイテンネックレス販売中画面&quot;,
+      &quot;visual_elements&quot;: {
+        &quot;telop_texts&quot;: [
+          {&quot;content_area&quot;: &quot;top_left_banner&quot;, &quot;text_style&quot;: &quot;white text on dark blue-green bar&quot;, &quot;details&quot;: &quot;商品No 770 627&quot;},
+          {&quot;content_area&quot;: &quot;left_product_title&quot;, &quot;text_style&quot;: &quot;large, bold, black text on white background&quot;, &quot;details&quot;: &quot;お好みの色を2本選べる！ ファイテン RAKUWA 磁気チタンネックレス 2本セット&quot;},
+          {&quot;content_area&quot;: &quot;left_color_options&quot;, &quot;text_style&quot;: &quot;smaller, black text on white background&quot;, &quot;details&quot;: &quot;ブラックシルバー, ブラックゴールド, レッドゴールド, ヌーディーピンク, ネイビーシルバー, グレーシルバー (グレーシルバーは黄色の打消し線あり)&quot;},
+          {&quot;content_area&quot;: &quot;left_status_indicators&quot;, &quot;text_style&quot;: &quot;small, black text on white background, some with yellow highlights/strikethrough&quot;, &quot;de...</div>
+                </div><div class="visual-item">
+                    <div class="visual-header">
+                        <span class="ts-badge">33分30秒</span>
+                        <span class="visual-reason">comparison_data — 保温性2.61 vs 3.43テロップ</span>
+                        <span class="visual-file">frame_0034_2040s.jpg</span>
+                    </div>
+                    <div class="visual-body">```json
+[
+  {
+    &quot;timestamp&quot;: &quot;[33:30]&quot;,
+    &quot;description&quot;: &quot;comparison_data: 保温性2.61 vs 3.43テロップ&quot;,
+    &quot;visual_elements&quot;: {
+      &quot;テロップテキスト&quot;: {
+        &quot;main_title&quot;: &quot;寝床内湿度測定試験結果&quot;,
+        &quot;subtitle&quot;: &quot;高級ダウンケットより蒸れにくい！&quot;,
+        &quot;product_info_panel&quot;: [
+          &quot;素材: ポリエステル&quot;,
+          &quot;生地: 防ダニ&quot;,
+          &quot;詰物: 抗菌防臭&quot;,
+          &quot;洗濯機可&quot;,
+          &quot;中国製&quot;,
+          &quot;商品番号: 812 356&quot;,
+          &quot;商品名: ケット&lt;シングル&gt;&quot;,
+          &quot;色: パープル、ミント&quot;,
+          &quot;メーカー希望小売価格: ¥18,400&quot;,
+          &quot;本日価格: ¥6,980&quot;,
+          &quot;商品番号: 812 360&quot;,
+          &quot;商品名: 敷きパッド&lt;シングル&gt;&quot;,
+          &quot;色: パープル、ミント&quot;,
+          &quot;メーカー希望小売価格: ¥15,800&quot;,
+          &quot;本日価格: ¥5,980&quot;
+        ],
+        &quot;comparison_graph_labels&quot;: [
+          &quot;寝床内の湿度(%)RH&quot;,
+          &quot;高級ダウンケット&quot;,
+          &quot;メルティーリッチダウン ケット&quot;,
+          &quot;ダウン85%・フェザー15% メーカー比較品&quot;
+     ...</div>
+                </div><div class="visual-item">
+                    <div class="visual-header">
+                        <span class="ts-badge">53分10秒</span>
+                        <span class="visual-reason">matching_price — マッチングプライス12,960円テロップ</span>
+                        <span class="visual-file">frame_0053_3180s.jpg</span>
+                    </div>
+                    <div class="visual-body">```json
+[
+  {
+    &quot;timestamp&quot;: &quot;[53:10]&quot;,
+    &quot;description&quot;: &quot;matching_price: マッチングプライス12,960円テロップ&quot;,
+    &quot;visual_information&quot;: {
+      &quot;text_overlays&quot;: [
+        {
+          &quot;category&quot;: &quot;product_catchphrase&quot;,
+          &quot;text_present&quot;: true,
+          &quot;position&quot;: &quot;top_left&quot;,
+          &quot;content_type&quot;: &quot;Japanese&quot;
+        },
+        {
+          &quot;category&quot;: &quot;discount_rate&quot;,
+          &quot;text_present&quot;: true,
+          &quot;position&quot;: &quot;bottom_left&quot;,
+          &quot;content_type&quot;: &quot;Japanese&quot;
+        },
+        {
+          &quot;category&quot;: &quot;product_number&quot;,
+          &quot;text_present&quot;: true,
+          &quot;position&quot;: &quot;left_mid&quot;,
+          &quot;content_type&quot;: &quot;Japanese&quot;
+        },
+        {
+          &quot;category&quot;: &quot;product_details&quot;,
+          &quot;text_present&quot;: true,
+          &quot;position&quot;: &quot;left_mid&quot;,
+          &quot;content_type&quot;: &quot;Jap...</div>
+                </div><div class="visual-item">
+                    <div class="visual-header">
+                        <span class="ts-badge">81分11秒</span>
+                        <span class="visual-reason">demo — 油性ペン比較デモ（パルスイクロス vs 綿）</span>
+                        <span class="visual-file">frame_0081_4860s.jpg</span>
+                    </div>
+                    <div class="visual-body">```json
+{
+  &quot;screenshots&quot;: [
+    {
+      &quot;timestamp&quot;: &quot;81:11&quot;,
+      &quot;telops&quot;: {
+        &quot;product_id&quot;: &quot;商品No 819 835&quot;,
+        &quot;product_name&quot;: &quot;長い毛足で汚れをキャッチ パルスイクロス 薄手 特別6枚セット&quot;,
+        &quot;catch_copy&quot;: &quot;長い毛足で汚れを絡めとる！パルスイクロス&quot;,
+        &quot;material_dimensions&quot;: &quot;材質: レーヨン 約21×27×0.5cm&quot;,
+        &quot;color_options&quot;: &quot;オレンジミックス, キウイミックス&quot;,
+        &quot;waitlist_status&quot;: &quot;残りわずか ウェイトリスト / 受付終了&quot;,
+        &quot;discount_period&quot;: &quot;期間限定: 4/10~16 32%OFF&quot;,
+        &quot;original_price&quot;: &quot;メーカー希望小売価格 ¥5,940&quot;,
+        &quot;special_price&quot;: &quot;特別価格 ¥3,980&quot;,
+        &quot;shipping_returns_tax&quot;: &quot;送料 ¥0 / 返品可 / 税込&quot;,
+        &quot;order_online_prompt&quot;: &quot;ネット注文はこちら &gt;&gt;&quot;,
+        &quot;phone_number&quot;: &quot;0120-000123 / 携帯電話からは0570-000-111へ&quot;,
+        &quot;channel_name&quot;: &quot;SHOP CHANNEL LIVE&quot;,
+        &quot;free_shipping_banner&quot;: &quot;全品送料無料 (期間中)実施中! 4/10(水)～16(火)まで&quot;,
+        &quot;me...</div>
+                </div><div class="visual-item">
+                    <div class="visual-header">
+                        <span class="ts-badge">130分59秒</span>
+                        <span class="visual-reason">price_display — 2点セット5,990円テロップ</span>
+                        <span class="visual-file">frame_0131_7860s.jpg</span>
+                    </div>
+                    <div class="visual-body">```json
+[
+  {
+    &quot;screenshot_time&quot;: &quot;130:59&quot;,
+    &quot;visual_elements&quot;: {
+      &quot;text_overlays&quot;: [
+        {&quot;content&quot;: &quot;商品No 815 147&quot;, &quot;position&quot;: &quot;top-left&quot;, &quot;color&quot;: &quot;black&quot;, &quot;size&quot;: &quot;medium&quot;},
+        {&quot;content&quot;: &quot;&lt;ベスト&gt;&quot;, &quot;position&quot;: &quot;top-left&quot;, &quot;color&quot;: &quot;black&quot;, &quot;size&quot;: &quot;small&quot;},
+        {&quot;content&quot;: &quot;実寸(ヌード寸法): 約cm&quot;, &quot;position&quot;: &quot;top-left&quot;, &quot;color&quot;: &quot;black&quot;, &quot;size&quot;: &quot;small&quot;},
+        {&quot;content&quot;: &quot;ライトグレージュ S M L LL 3L&quot;, &quot;position&quot;: &quot;mid-left&quot;, &quot;color&quot;: &quot;black&quot;, &quot;size&quot;: &quot;small&quot;},
+        {&quot;content&quot;: &quot;ブラウン S M L LL 3L&quot;, &quot;position&quot;: &quot;mid-left&quot;, &quot;color&quot;: &quot;black&quot;, &quot;size&quot;: &quot;small&quot;},
+        {&quot;content&quot;: &quot;グレー S M L LL 3L&quot;, &quot;position&quot;: &quot;mid-left&quot;, &quot;color&quot;: &quot;black&quot;, &quot;size&quot;: &quot;small&quot;},
+        {&quot;content&quot;: &quot;ブラック S M L LL 3L&quot;, &quot;position&quot;: &quot;mid-left&quot;, &quot;color&quot;: &quot;black&quot;, &quot;size&quot;: &quot;small&quot;},
+        {&quot;conten...</div>
+                </div><div class="visual-item">
+                    <div class="visual-header">
+                        <span class="ts-badge">180分0秒</span>
+                        <span class="visual-reason">quality_demo — ベスト裏側品質アップ</span>
+                        <span class="visual-file">frame_0180_10800s.jpg</span>
+                    </div>
+                    <div class="visual-body">```json
+[
+  {
+    &quot;timestamp&quot;: &quot;180:00&quot;,
+    &quot;analysis_reason&quot;: &quot;ベスト裏側品質アップ&quot;,
+    &quot;visual_info&quot;: {
+      &quot;1_text_elements&quot;: [
+        {&quot;type&quot;: &quot;product_number&quot;, &quot;content_description&quot;: &quot;815 147 (large font)&quot;, &quot;location&quot;: &quot;top_left&quot;},
+        {&quot;type&quot;: &quot;product_name&quot;, &quot;content_description&quot;: &quot;シルバーミントシュガー レース&amp;フリルツイルブラウス風ベストとドルマンスリーブデザインプルオーバーアンサンブル&quot;, &quot;location&quot;: &quot;top_left_below_product_number&quot;},
+        {&quot;type&quot;: &quot;price&quot;, &quot;content_description&quot;: &quot;通常価格 ¥11,000 (strikethrough), 特別価格 ¥5,990 (large, red font)&quot;, &quot;location&quot;: &quot;left_panel_middle&quot;},
+        {&quot;type&quot;: &quot;discount_rate&quot;, &quot;content_description&quot;: &quot;45%OFF (red font)&quot;, &quot;location&quot;: &quot;left_panel_middle_below_price&quot;},
+        {&quot;type&quot;: &quot;catchphrase&quot;, &quot;content_description&quot;: &quot;残りわずか ●ウェイトリスト / 受付終了, 明日以降, 本日価格&quot;, &quot;location&quot;: &quot;left_panel_middle_below_price&quot;}...</div>
+                </div>
+        </div><div class="page">
+        <h2>インサイト・示唆 — 他の販売チャネルに応用可能な知見</h2>
+        <div class="two-col">
+            <div class="col">
+                <div class="insight"><div class="insight-num">1</div><div><strong>在庫カウントダウンのリアルタイム性</strong><p>「残り○○点」の連続更新が最強の購買ドライバー（84件検出）。1セグメントで10-25回更新。ECでも在庫数リアルタイム表示、「残りN点」通知が有効。</p></div></div>
+                <div class="insight"><div class="insight-num">2</div><div><strong>デモの反復構造（全体の45%）</strong><p>同じデモを2-3ラウンド繰り返す設計。途中参加者への対応と、繰り返しによる購買意欲醸成の二重効果。動画コマースでも「途中から見ても分かる」構成が鍵。</p></div></div>
+                <div class="insight"><div class="insight-num">3</div><div><strong>アンカリングの二重構造</strong><p>「メーカー希望小売価格→SC価格」の空間的アンカリングに加え、「原材料高騰で値上げすべきを据え置き」「30周年特別」の時間的アンカリングを組み合わせ。</p></div></div>
+            </div>
+            <div class="col">
+                <div class="insight"><div class="insight-num">4</div><div><strong>社会的証明のライブ感（73件）</strong><p>「お電話350名」「1万件突破」のリアルタイム報告 + 顧客メッセージの即時読み上げ。バンドワゴン効果とFOMOを同時に発動させる設計。</p></div></div>
+                <div class="insight"><div class="insight-num">5</div><div><strong>ゲスト出演の権威効果</strong><p>社長・デザイナー・実演販売士が全商品に登場。開発背景や職人のこだわりを「本人の口」から語る。インフルエンサーマーケティングの原型。</p></div></div>
+                <div class="insight"><div class="insight-num">6</div><div><strong>送料無料の横断ドライバー設計</strong><p>期間限定キャンペーン（30回以上言及）が個別商品訴求とは別レイヤーで全セグメントを貫通。「今買う理由」を商品特性に依存せず生成する仕組み。</p></div></div>
+            </div>
+        </div>
+        <div class="footer">Claude Code テキスト分析 + Gemini 2.5 Flash 視覚分析 | 生成日: 2026-04-10</div>
+    </div>
+</body>
+</html>
